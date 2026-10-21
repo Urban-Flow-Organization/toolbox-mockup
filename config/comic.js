@@ -14,22 +14,22 @@
  * Block ids are the same as in architecture-tools.js. Only highlighted components light up.
  */
 window.UF_COMIC = {
-  "title": "Valdarena: a cooler, calmer Borgo",
+  "title": "Valdarena: a cooler, calmer Old Town",
   "intro": "A story in nine chapters about how a city uses the Urban-Flow Toolbox. Valdarena and its people are invented; the problems come from real Urban-Flow pilot cities.",
   "cast": [
     { "id": "chiara", "name": "Chiara", "role": "Mobility officer, City of Valdarena", "look": "chiara" },
     { "id": "davide", "name": "Davide", "role": "City IT team", "look": "davide" },
-    { "id": "rosa", "name": "Rosa", "role": "Runs a café in the Borgo Antico", "look": "rosa" },
+    { "id": "rosa", "name": "Rosa", "role": "Runs a café in the Old Town", "look": "rosa" },
     { "id": "marco", "name": "Marco", "role": "Courier at VeloCargo", "look": "marco" }
   ],
   "chapters": [
     {
       "step": "Preparation", "title": "Valdarena joins the Toolbox",
       "panels": [
-        { "who": "narrator", "scene": "street", "text": "Valdarena, 420,000 people. In the Borgo Antico, the old town, summers get hotter every year – and delivery vans fight for every metre of kerb." },
+        { "who": "narrator", "scene": "street", "text": "Valdarena, 420,000 people. In the Old Town, summers get hotter every year – and delivery vans fight for every metre of kerb." },
         { "who": "chiara", "scene": "office", "text": "Everyone has an opinion about the heat and the vans. I need facts. Let's try the Urban-Flow Toolbox." },
         { "who": "davide", "scene": "office", "text": "Done! Each department has an {{users:account}} with a {{authn:single login}}. I've plugged in the {{s_iot:street sensors and weather stations}} through the {{c_iot:sensor connector}}." },
-        { "who": "davide", "scene": "map", "text": "All our open data are now in the {{datacat:data catalogue}}, and here is the Borgo in {{ldt:3D}}." }
+        { "who": "davide", "scene": "map", "text": "All our open data are now in the {{datacat:data catalogue}}, and here is the Old Town in {{ldt:3D}}." }
       ]
     },
     {
@@ -41,7 +41,7 @@ window.UF_COMIC = {
       ]
     },
     {
-      "step": "UJ S2", "title": "The Borgo speaks",
+      "step": "UJ S2", "title": "The Old Town speaks",
       "panels": [
         { "who": "narrator", "scene": "meeting", "text": "The City Living Lab meets. Residents, shopkeepers and couriers join the discussion on the {{epart:participation platform}}, with the {{ldt:3D model}} on the big screen." },
         { "who": "rosa", "scene": "cafe", "text": "In the afternoon my tables are in full sun. Nobody sits outside any more. We need shade!" },
@@ -85,7 +85,7 @@ window.UF_COMIC = {
       "panels": [
         { "who": "narrator", "scene": "sun", "text": "Mid-July. Two days ahead, {{clim_alert:heat alerts}} forecasts a red day. Heat mode switches on by itself." },
         { "who": "chiara", "scene": "phone", "text": "A {{alerts:real-time alert}} on my phone: heat mode is on. The local police know too." },
-        { "who": "marco", "scene": "van", "text": "We changed our routes. No vans in the Borgo from noon to six." },
+        { "who": "marco", "scene": "van", "text": "We changed our routes. No vans in the Old Town from noon to six." },
         { "who": "chiara", "scene": "map", "text": "On the {{dash:dashboard}}, fed live by the {{s_iot:street sensors}}: far fewer vans in the hottest hours." }
       ]
     },

@@ -1428,13 +1428,10 @@ function sideNav() {
     { grp: 'data', icon: 'db', label: 'Data Platform', items: mods(D.arch.dpo.concat(D.arch.dm, ['etl'], D.arch.dc)) },
     { id: 'dsc', icon: 'share', label: 'Data Spaces Connector' },
     { id: 'admin', icon: 'gear', label: 'Administration' },
-    { sec: 'Urban-Flow Stories' },
-    { view: 'comic', icon: 'people', label: 'Valdarena – the story' },
-    { view: 'tour', icon: 'book', label: 'Use case: Valdarena' },
-    { view: 'journey', icon: 'people', label: 'Municipality user journey' },
-    { stories: true },
+    { sec: 'Urban-Flow Use Case' },
+    { view: 'comic', icon: 'people', label: 'Valdarena' },
     { sec: 'Platform' },
-    { view: 'arch', icon: 'arch', label: 'Architecture map' },
+    { view: 'arch', icon: 'arch', label: 'Reference Architecture' },
     { id: 'authz', icon: 'shield', label: 'Access & roles' }
   ];
 }
@@ -1477,7 +1474,6 @@ function vSide() {
   var homeAct = S.view === 'home';
   return '<nav class="lnav' + (mini ? ' mini' : '') + '" aria-label="Toolbox navigation"><div class="sbody">' +
     '<button type="button" class="sitem home' + (homeAct ? ' active' : '') + '" data-act="nav" data-arg="home"' + (homeAct ? ' aria-current="page"' : '') + (mini ? ' title="Home" aria-label="Home"' : '') + '>' + SI.home + '<span class="sl">Home</span></button>' +
-    '<div class="mcity seg" role="group" aria-label="City instance">' + ['Valencia', 'Florence', 'Tampere'].map(function (c) { return '<button type="button" data-act="city" data-arg="' + c + '" aria-pressed="' + (S.city === c) + '">' + c + '</button>'; }).join('') + '</div>' +
     '<hr>' + html + '</div></nav>';
 }
 var LANGS = ['EN', 'IT', 'ES', 'FI'];
@@ -1491,9 +1487,6 @@ function vHeader() {
     '<button type="button" class="sqbtn" data-act="menu" aria-label="' + (mini ? 'Expand' : 'Collapse') + ' the tools menu" aria-expanded="' + !mini + '">' + ICON.menu + '</button></div>' +
     '<button type="button" class="toplink hidem" data-act="nav" data-arg="arch"' + (S.view === 'arch' ? ' aria-current="page"' : '') + ' title="Urban-Flow reference architecture"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="5" rx="1.5"/><rect x="3" y="10.5" width="8" height="4" rx="1.2"/><rect x="13" y="10.5" width="8" height="4" rx="1.2"/><rect x="3" y="17" width="18" height="4" rx="1.2"/></svg><span class="tlk">Architecture</span></button>' +
     '<div style="flex:1 1 10px"></div>' +
-    '<div class="seg hidem" role="group" aria-label="City instance">' + ['Valencia', 'Florence', 'Tampere'].map(function (c) {
-      return '<button type="button" data-act="city" data-arg="' + c + '" aria-pressed="' + (S.city === c) + '">' + c + '</button>';
-    }).join('') + '</div>' +
     '<button type="button" class="sqbtn hidem" data-act="full" aria-label="Full screen" title="Full screen">' + SI.full + '</button>' +
     '<button type="button" class="sqbtn wide" data-act="lang" aria-label="Interface language: ' + S.lang + ' (mockup – content stays in English)" title="Interface language (mockup)">' + SI.lang + '<span class="code">' + S.lang + '</span></button>' +
     '<div class="userchip hidem"><span class="avatar" aria-hidden="true">' + esc(ini) + '</span><span class="stack meta" style="line-height:1.15"><span style="font-size:13px;font-weight:700">' + esc(role.login) + '</span><span style="font-size:12px;opacity:.85">' + esc(S.role) + '</span></span></div>' +
@@ -1512,42 +1505,14 @@ function vHome() {
   var svcs = [['Data Catalogue (Idra)', 'datacat'], ['GeoServer', 'geo'], ['Workflow Management (Airflow)', 'wf'], ['Data Spaces Connector', 'dsc']];
   return '<div class="stack" style="gap:28px">' +
     '<section class="welcome"><div class="stack" style="gap:18px;min-width:0">' +
-    '<span class="tag">' + (CITY[CITY_ALIASES[S.city.toLowerCase()]] || {}).flag + esc(S.city) + ' instance · signed in as ' + esc(S.role) + '</span>' +
     '<p class="big">URBAN-<b>FLOW</b></p>' +
     '<h1>Local Digital Twins for liveable, climate-neutral cities</h1>' +
-    '<p class="lead">Connect city data, measure what matters, simulate measures before building them and decide together with citizens. Pilot focus in ' + esc(S.city) + ': ' + esc(D.cityInfo[S.city]) + '</p>' +
-    '<div class="wrap" style="gap:12px"><button type="button" class="btn primary hov" data-act="story" data-arg="florence">' + ICON.book + 'Read the Florence story</button><button type="button" class="btn outline hov" data-act="nav" data-arg="comic">' + SI.people + 'Valdarena – the story</button><button type="button" class="btn outline hov" data-act="nav" data-arg="arch">' + ICON.arch + 'Tools information</button></div></div>' +
+    '<p class="lead">Connect city data, measure what matters, simulate measures before building them and decide together with citizens. One Toolbox, shared by the pilot cities (only during the test phase), with the tools each city needs.</p>' +
+    '</div>' +
     '<div class="art" aria-hidden="true"><div class="blob"></div><div class="sun"></div><div class="badge2"><img src="assets/urban-flow-logo-stacked.png" alt=""><span><strong>3 pilot cities</strong>Valencia · Florence · Tampere</span></div></div></section>' +
 
-    '<section aria-labelledby="kpi-h" class="stack" style="gap:12px"><div class="sec-h"><h2 id="kpi-h">Key indicators</h2><span class="pill sample">Sample data</span></div>' +
-    '<div class="grid-auto" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">' + kpis.map(function (k) {
-      return '<button type="button" class="kpi hov" data-act="nav" data-arg="' + k[3] + '"><span class="small">' + esc(k[0]) + '</span><span class="v">' + esc(k[1]) + '</span><span class="l">' + esc(k[2]) + ' →</span></button>';
-    }).join('') + '</div></section>' +
 
-    '<div class="wrap" style="gap:24px;align-items:flex-start">' +
-    '<section aria-labelledby="dom-h" class="stack" style="flex:999 1 600px;min-width:0;gap:12px">' +
-    '<div class="mp-head"><span class="mp-icon">' + ICON.store(22) + '</span><div><h2 id="dom-h" style="margin:0;font-size:20px">Marketplace</h2><p class="small" style="margin:0">Analyse · Simulate · Forecast tools contributed by the project partners</p></div></div>' +
-    '<div class="grid-auto" style="grid-template-columns:repeat(auto-fit,minmax(250px,1fr))">' + D.arch.asf.map(function (g) {
-      var ps = []; g[1].forEach(function (id) { partnersOf(id).forEach(function (p) { if (ps.indexOf(p) < 0) ps.push(p); }); });
-      return '<div class="domain"><h3>' + esc(g[0]) + '</h3><div class="stack" style="gap:6px">' + g[1].map(function (id) {
-        return '<button type="button" data-act="nav" data-arg="' + id + '"><span>' + esc(D.byId[id].n) + '</span>' + lockIf(id) + '</button>';
-      }).join('') + '</div><span class="partners">Partners: ' + esc(ps.join(', ')) + '</span></div>';
-    }).join('') + '</div>' +
-    '<div class="sec-h" style="margin-top:10px"><h2>User interaction tools</h2></div>' +
-    '<div class="grid-auto" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">' + D.arch.ui.map(function (id) {
-      return '<button type="button" class="uitile hov" data-act="nav" data-arg="' + id + '"><span style="display:flex;justify-content:space-between;gap:8px;width:100%"><strong style="font-size:15px;color:var(--g800)">' + esc(D.byId[id].n) + '</strong>' + lockIf(id) + '</span><span class="small">' + esc(D.byId[id].s) + '</span></button>';
-    }).join('') + '</div></section>' +
-
-    '<aside class="stack" style="flex:1 1 340px;min-width:0;gap:16px">' +
-    '<section class="card stack" style="padding:18px;gap:10px" aria-labelledby="al-h"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><h2 id="al-h" style="margin:0;font-size:16px">Real-time alerts</h2><span class="pill sample">Sample</span></div>' +
-    alerts.map(function (r) { return '<div class="alert"><i aria-hidden="true"></i><span class="stack" style="gap:2px"><strong style="font-size:14px">' + esc(r[1]) + '</strong><span class="small">' + esc(r[0] + ' · ' + r[2] + ' · ' + r[3]) + '</span></span></div>'; }).join('') +
-    '<button type="button" class="btn hov" style="align-self:flex-start;min-height:40px" data-act="nav" data-arg="alerts">Open Real-time Alerts</button></section>' +
-    '<section class="access"><h2>Your access (Keycloak)</h2>' +
-    '<p style="margin:0;font-size:14px">Role <strong>' + esc(S.role) + '</strong> can open <strong>' + (D.rbac[S.role] || []).length + ' of ' + D.mods.length + '</strong> modules. Locked modules show a padlock: opening them demonstrates role-based authorisation.</p>' +
-    '<button type="button" class="btn lime hov" style="align-self:flex-start;min-height:40px" data-act="nav" data-arg="authz">See the role matrix</button></section>' +
-    '<section class="card stack" style="padding:18px;gap:8px"><h2 style="margin:0;font-size:16px">Data foundation</h2>' +
-    svcs.map(function (x) { var ok = allowed(x[1]); return '<button type="button" class="svc rowhov" data-act="nav" data-arg="' + x[1] + '"><span style="font-size:14px">' + esc(x[0]) + '</span><span class="pill" style="background:' + (ok ? 'var(--lime)' : '#e6e9e8') + ';color:' + (ok ? 'var(--g900)' : 'var(--muted)') + '">' + (ok ? 'online' : 'restricted') + '</span></button>'; }).join('') +
-    '</section></aside></div></div>';
+    '</div>';
 }
 
 function pvMap(t) {
@@ -2014,7 +1979,7 @@ function vArch() {
   var A = D.arch;
   function grid(min, gap) { return 'display:grid;grid-template-columns:repeat(auto-fit,minmax(' + min + 'px,1fr));gap:' + (gap || 6) + 'px'; }
   return '<div class="stack" style="gap:16px">' +
-    '<div class="wrap" style="justify-content:space-between;align-items:flex-end;gap:12px"><div style="flex:1 1 520px;min-width:0"><p class="eyebrow">Urban-Flow Toolbox</p><h1 style="margin:4px 0 6px;font-size:34px;font-weight:800">Reference architecture</h1>' +
+    '<div class="wrap" style="justify-content:space-between;align-items:flex-end;gap:12px"><div style="flex:1 1 520px;min-width:0"><p class="eyebrow">Urban-Flow Toolbox</p><h1 style="margin:4px 0 6px;font-size:34px;font-weight:800">Reference Architecture</h1>' +
     '<p style="margin:0;color:var(--ink2);max-width:820px">Select any block to read a short summary of the component, its reference in D3.1, the partners and tools behind it and their GitHub repositories, then open the matching portal module.</p></div>' +
     '<div class="stack" style="gap:10px;align-items:flex-end">' + (S.focus ? '' : '<button type="button" class="btn outline" data-act="focus" title="Show only the architecture, without menu bars">' + SI.full + 'Focus view</button>') + '<div class="legend"><span><i style="background:#9fcbe8"></i>Platform layers</span><span><i style="background:#19332E;box-shadow:0 0 0 2px #DBF27C inset"></i>Marketplace</span><span><i style="background:#1A1B33"></i>Identity and access</span><span><i style="border:2px dashed #7d8784"></i>External</span></div></div></div>' +
     vCityFilter() +
@@ -2324,7 +2289,7 @@ function vJourney() {
 
   var p = UJ.persona || {};
   return '<div class="stack" style="gap:20px">' + warn +
-    '<header class="phead"><div class="ph-l"><h1>' + esc(UJ.title) + '</h1><button type="button" class="btn primary" data-act="nav" data-arg="tour">▶ Example: Valdarena</button></div><nav class="pcrumb" aria-label="Breadcrumb"><button type="button" data-act="nav" data-arg="home">Home</button><span aria-hidden="true">›</span><span class="mid">Urban-Flow Stories</span><span aria-hidden="true">›</span><span aria-current="page">User journey</span></nav></header>' +
+    '<header class="phead"><div class="ph-l"><h1>' + esc(UJ.title) + '</h1><button type="button" class="btn primary" data-act="nav" data-arg="tour">▶ Example: Valdarena</button></div><nav class="pcrumb" aria-label="Breadcrumb"><button type="button" data-act="nav" data-arg="home">Home</button><span aria-hidden="true">›</span><span class="mid">Urban-Flow Use Case</span><span aria-hidden="true">›</span><span aria-current="page">User journey</span></nav></header>' +
     '<section class="jintro"><div class="stack" style="gap:8px;flex:2 1 460px;min-width:0"><p style="margin:0;font-size:17px;color:var(--ink2)">' + esc(UJ.subtitle) + '</p>' +
     '<div class="jpersona"><span class="pav" style="width:46px;height:46px;background:var(--lime);font-size:18px" aria-hidden="true">M</span><span class="stack" style="gap:2px;min-width:0"><strong>' + esc(p.name || 'Municipality') + '</strong><span class="small">' + esc(p.role || '') + '</span><span style="font-size:14px"><b>Goal:</b> ' + esc(p.goal || '') + '</span></span></div></div>' +
     '<div class="jcore"><span class="cf-label">Core tools in this journey</span><div class="wrap" style="gap:6px">' + (UJ.coreTools || []).map(function (c) { var e = D.byId[c.block]; return '<button type="button" class="jtool core' + (e && e.L === 'asf' ? ' mp' : '') + '" style="min-height:0" data-act="nav" data-arg="' + c.block + '"><span class="jtn">' + (e && e.L === 'asf' ? ICON.store(14) : '') + esc(c.tool) + '</span></button>'; }).join('') + '</div>' +

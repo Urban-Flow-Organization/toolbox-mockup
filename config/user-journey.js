@@ -928,12 +928,12 @@ window.UF_JOURNEY = {
   ],
   "tour": {
     "title": "Use case: Valdarena",
-    "subtitle": "Cool and clear streets in the Borgo Antico",
+    "subtitle": "Cool and clear streets in the Old Town",
     "city": {
       "name": "Valdarena",
       "note": "Fictional city",
       "population": "≈ 420,000 residents",
-      "description": "A mid-sized European city with a dense historic centre (the Borgo Antico) inside a low-emission zone, summer heat waves getting longer, and delivery vans competing for little curb space.",
+      "description": "A mid-sized European city with a dense historic centre (the Old Town) inside a low-emission zone, summer heat waves getting longer, and delivery vans competing for little curb space.",
       "inspiredBy": "Inspired by the pilot sheets of Valencia, Florence and Tampere (Grant Agreement, Part B §1.2.1.4)."
     },
     "problem": "Strong heat stress from noon to 6 p.m. in summer and delivery congestion in the narrow streets of the historic centre.",
@@ -989,10 +989,10 @@ window.UF_JOURNEY = {
           },
           {
             "block": "ldt",
-            "does": "3D model of the Borgo Antico loaded"
+            "does": "3D model of the Old Town loaded"
           }
         ],
-        "story": "Valdarena (420,000 people) has a historic centre, the Borgo Antico, inside a low-emission zone: summers keep getting hotter and delivery vans fight for the few kerb spaces. Chiara, mobility officer, decides to try the Urban-Flow Toolbox. Davide, from municipal IT, opens the Valdarena instance, gives each department an account, connects kerb sensors and weather stations, harvests the open-data portal into the catalogue and loads the 3D model of the Borgo Antico.",
+        "story": "Valdarena (420,000 people) has a historic centre, the Old Town, inside a low-emission zone: summers keep getting hotter and delivery vans fight for the few kerb spaces. Chiara, mobility officer, decides to try the Urban-Flow Toolbox. Davide, from municipal IT, opens the Valdarena instance, gives each department an account, connects kerb sensors and weather stations, harvests the open-data portal into the catalogue and loads the 3D model of the Old Town.",
         "also": [
           {
             "block": "c_open",
@@ -1008,7 +1008,7 @@ window.UF_JOURNEY = {
         "code": "UJ S1",
         "loop": "Loop 1",
         "title": "How hot, how congested?",
-        "summary": "The baseline shows that in summer the Borgo Antico reaches strong heat stress from noon to 6 p.m., while one delivery stop in three happens in double parking.",
+        "summary": "The baseline shows that in summer the Old Town reaches strong heat stress from noon to 6 p.m., while one delivery stop in three happens in double parking.",
         "flow": [
           {
             "block": "s_iot",
@@ -1050,7 +1050,7 @@ window.UF_JOURNEY = {
       {
         "code": "UJ S2",
         "loop": "Loop 2",
-        "title": "The Borgo speaks",
+        "title": "The Old Town speaks",
         "summary": "Shopkeepers, couriers and residents co-create ideas: early loading windows, shade for the afternoon and fewer vans on the hottest days.",
         "flow": [
           {
@@ -1074,7 +1074,7 @@ window.UF_JOURNEY = {
             "does": "Proven measures: loading windows, shading, de-paving"
           }
         ],
-        "story": "The City Living Lab meets in the Borgo. Residents, shopkeepers and couriers sign in and join the process in e-Participation, with the 3D model and the baseline KPIs on screen. Rosa, who runs a café on Via dei Tintori, wants shade for her tables in the afternoon; VeloCargo's couriers want loading slots early in the morning; residents ask for fewer vans on the hottest days. The Catalogue of Urban Regeneration Measures suggests what has worked elsewhere.",
+        "story": "The City Living Lab meets in the Old Town. Residents, shopkeepers and couriers sign in and join the process in e-Participation, with the 3D model and the baseline KPIs on screen. Rosa, who runs a café on Via dei Tintori, wants shade for her tables in the afternoon; VeloCargo's couriers want loading slots early in the morning; residents ask for fewer vans on the hottest days. The Catalogue of Urban Regeneration Measures suggests what has worked elsewhere.",
         "also": [
           {
             "block": "geo",
@@ -1085,7 +1085,7 @@ window.UF_JOURNEY = {
       {
         "code": "UJ S3",
         "loop": "Loop 1 · 2nd iteration",
-        "title": "Three futures for the Borgo",
+        "title": "Three futures for the Old Town",
         "summary": "Three scenarios are simulated: A) morning loading windows; B) A + a “heat mode” that closes 6 streets to vans on red-alert days; C) B + 40 bays turned into shaded green space.",
         "flow": [
           {
