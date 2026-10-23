@@ -27,7 +27,8 @@
  *        shortName     (optional, Marketplace tools) label shown on the button in the architecture figure and in the left menu
  *        order         (optional, Marketplace tools) position inside its domain, 1 = first
  *        partner       providing partner, e.g. "ENG", "TECNALIA" (optional)
- *        openSource    true for third-party open-source components (optional)
+ *        openSource    true for external tools, i.e. third-party tools not developed by a project partner;
+ *                      shown as the "External tool" label (optional)
  *        integration   who integrates it, e.g. "ENG (T3.2 lead)" (optional)
  *        reference     e.g. "D3.1 §4.3.10.1" or "GA T5.3"
  *        description   one or two sentences

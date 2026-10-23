@@ -1355,9 +1355,9 @@ function metaRow(x) {
   }).join('');
   return '<div class="who">' + chips + (x.wp ? '<span class="wp">' + esc(x.wp) + '</span>' : '') + (x.tasks ? '<span class="task" title="Grant Agreement task">' + esc(x.tasks) + '</span>' : '') + '</div>';
 }
-function partnersOf(id) { var seen = {}; return (DT[id] || []).map(function (x) { return x.p || 'open source'; }).filter(function (p) { if (seen[p]) return false; seen[p] = 1; return true; }); }
+function partnersOf(id) { var seen = {}; return (DT[id] || []).map(function (x) { return x.p || 'external'; }).filter(function (p) { if (seen[p]) return false; seen[p] = 1; return true; }); }
 function cardHTML(x) {
-  return '<article class="toolcard"><div class="who">' + (x.p ? '<span class="partner">' + esc(x.p) + '</span>' : '') + (x.os ? '<span class="partner os">Open source</span>' : '') + (x.i ? '<span class="partner int">Integration: ' + esc(x.i) + '</span>' : '') + '<span class="refc">' + esc(x.ref) + '</span></div>' + metaRow(x) +
+  return '<article class="toolcard"><div class="who">' + (x.p ? '<span class="partner">' + esc(x.p) + '</span>' : '') + (x.os ? '<span class="partner os" title="Third-party tool, not developed by a project partner">External tool</span>' : '') + (x.i ? '<span class="partner int">Integration: ' + esc(x.i) + '</span>' : '') + '<span class="refc">' + esc(x.ref) + '</span></div>' + metaRow(x) +
     '<h3>' + esc(x.n) + '</h3><p class="small" style="margin:0;color:var(--ink2)">' + esc(x.d) + '</p><div class="stack" style="gap:2px">' + repoLinks(x.r, 'GitHub repository not public yet') + '</div></article>';
 }
 
@@ -1936,7 +1936,7 @@ function tagHTML(it) {
   return '<span class="tag static' + (it.mp ? ' fill' : '') + '" style="--tc:' + it.c + ';--tb:' + it.bg + ';--tx:' + it.tx + '"><i></i>' + esc(it.dom) + '</span>';
 }
 function tdirPartners(x) { return (x.p || '').split(',').map(function (z) { return z.trim(); }).filter(Boolean); }
-function tdirQ(it) { return (it.x.n + ' ' + (it.x.sn || '') + ' ' + (it.x.p || '') + ' ' + it.dom + ' ' + (it.b.an || it.b.n)).toLowerCase(); }
+function tdirQ(it) { return (it.x.n + ' ' + (it.x.sn || '') + ' ' + (it.x.p || '') + ' ' + it.dom + ' ' + (it.b.an || it.b.n) + (it.x.os ? ' external tool' : '')).toLowerCase(); }
 function ddPill(d) {
   if (!d) return '<span class="dd-plain">All</span>';
   if (d.key === '__mp') return '<span class="tag static fill dd-mp"><i></i>Marketplace</span>';
@@ -1979,25 +1979,24 @@ function vToolsDir() {
     }).join('') + '</select></label>';
   };
   var toolOpts = all.slice().sort(function (a, b) { return tname(a).localeCompare(tname(b)); }).map(function (it) { return [it.key, tname(it)]; });
-  var parOpts = Object.keys(pc).sort(function (a, b) { return a.localeCompare(b); }).map(function (p) { return [p, p + ' (' + pc[p] + ')']; }).concat([['__os', 'Open source (' + osN + ')']]);
+  var parOpts = Object.keys(pc).sort(function (a, b) { return a.localeCompare(b); }).map(function (p) { return [p, p + ' (' + pc[p] + ')']; }).concat([['__os', 'External tools (' + osN + ')']]);
   var domOpts = [['__mp', 'Marketplace (' + all.filter(function (it) { return it.mp; }).length + ')']].concat(doms.map(function (d) { return [d.dom, d.dom + ' (' + d.n + ')']; }));
   var chips = '<button type="button" class="tag" data-act="tdom" data-arg="" aria-pressed="' + !S.tdom + '">All <b>' + all.length + '</b></button>' + doms.map(function (d) {
     return '<button type="button" class="tag" style="--tc:' + d.c + ';--tb:' + d.bg + ';--tx:' + d.tx + '" data-act="tdom" data-arg="' + esc(d.dom) + '" aria-pressed="' + (S.tdom === d.dom) + '"><i></i>' + esc(d.dom) + ' <b>' + d.n + '</b></button>';
   }).join('');
   var rowsArr = list.map(function (it) {
     var x = it.x, b = it.b, dq = tdirQ(it);
-    var partner = x.p ? esc(x.p) + (x.os ? ' <span class="partner os" style="margin-left:4px">Open source</span>' : '') : (x.os ? '<span class="partner os">Open source</span>' : '<span class="small">—</span>');
+    var partner = x.p ? esc(x.p) + (x.os ? ' <span class="partner os" style="margin-left:4px" title="Third-party tool, not developed by a project partner">External tool</span>' : '') : (x.os ? '<span class="partner os" title="Third-party tool, not developed by a project partner">External tool</span>' : '<span class="small">—</span>');
     var btn = function (inner, first) { return '<button type="button" class="cellbtn" data-act="tsel" data-arg="' + esc(it.key) + '"' + (first ? '' : ' tabindex="-1" aria-hidden="true"') + '>' + inner + '</button>'; };
     return '<tr class="dirrow" data-g="' + (it.mp ? 'mp' : 'oth') + '" data-q="' + esc(dq) + '"' + (q && dq.indexOf(q) < 0 ? ' style="display:none"' : '') + '>' +
       '<td style="border-left:7px solid ' + it.c + '">' + btn('<span class="tn">' + esc(tname(it)) + (it.mp ? (x.sn && x.sn !== x.n ? '<small>' + esc(x.n) + '</small>' : '') : '<small>' + esc(b.an || b.n) + '</small>') + '</span>', true) + '</td>' +
       '<td>' + btn(partner) + '</td>' +
-      '<td>' + btn(tagHTML(it)) + '</td>' +
-      '<td class="hm">' + btn('<span class="small">' + esc(x.ref || b.s || '') + '</span>') + '</td></tr>';
+      '<td>' + btn(tagHTML(it)) + '</td></tr>';
   });
   var seenQ = function (it) { return !q || tdirQ(it).indexOf(q) >= 0; };
   var gN = { mp: list.filter(function (it) { return it.mp && seenQ(it); }).length, oth: list.filter(function (it) { return !it.mp && seenQ(it); }).length };
   var gHead = function (g, icon, title, sub) {
-    return '<tr class="dirgrp ' + g + '" data-g="' + g + '"' + (gN[g] ? '' : ' style="display:none"') + '><td colspan="4"><span class="gt">' + icon + esc(title) + '</span><span class="gs">' + esc(sub) + '</span><span class="gc"><b class="gn">' + gN[g] + '</b> tools</span></td></tr>';
+    return '<tr class="dirgrp ' + g + '" data-g="' + g + '"' + (gN[g] ? '' : ' style="display:none"') + '><td colspan="3"><span class="gt">' + icon + esc(title) + '</span><span class="gs">' + esc(sub) + '</span><span class="gc"><b class="gn">' + gN[g] + '</b> tools</span></td></tr>';
   };
   var rows = '', lastG = '';
   list.forEach(function (it, i) {
@@ -2014,7 +2013,7 @@ function vToolsDir() {
     sel('ttool', 'Tool', toolOpts, S.ttool) + sel('tpar', 'Partner', parOpts, S.tpar) + tdirDomainDD(doms, all.length, all.filter(function (it) { return it.mp; }).length) +
     '<button type="button" class="btn tdir-reset" data-act="treset"' + (active ? '' : ' disabled') + '>Clear filters</button></div>' +
     '<p class="tdir-count" aria-live="polite" style="margin:0"><strong class="tdir-n">' + shown + '</strong> of ' + all.length + ' tools</p>' +
-    '<div style="overflow-x:auto"><table class="tdir"><thead><tr><th>Tool</th><th>Partner</th><th>Domain</th><th class="hm">Reference</th></tr></thead><tbody>' + rows + '</tbody></table></div>' +
+    '<div style="overflow-x:auto"><table class="tdir"><thead><tr><th>Tool</th><th>Partner</th><th>Domain</th></tr></thead><tbody>' + rows + '</tbody></table></div>' +
     '<p class="tdir-empty" style="margin:0;' + (shown ? 'display:none' : '') + '">No tool matches these filters.</p>' +
     '</section></div>';
 }
@@ -2027,7 +2026,7 @@ function vToolModal() {
     '<div class="mh ' + (it.mp ? 'mp' : '') + '" style="border-bottom:6px solid ' + it.c + '"><div class="stack" style="gap:4px"><span class="eyebrow" style="color:inherit;opacity:.8">Tool · ' + esc(it.dom) + '</span><h2 id="td-h">' + esc(x.n) + '</h2></div>' +
     '<button type="button" class="iconbtn" data-act="tclose" aria-label="Close" style="border:1.5px solid currentColor;background:transparent;color:inherit">' + ICON.close + '</button></div>' +
     '<div class="mb">' +
-    '<div class="wrap" style="gap:8px">' + tagHTML(it) + (x.p ? '<span class="partner">' + esc(x.p) + '</span>' : '') + (x.os ? '<span class="partner os">Open source</span>' : '') + '</div>' +
+    '<div class="wrap" style="gap:8px">' + tagHTML(it) + (x.p ? '<span class="partner">' + esc(x.p) + '</span>' : '') + (x.os ? '<span class="partner os" title="Third-party tool, not developed by a project partner">External tool</span>' : '') + '</div>' +
     (x.d ? '<p>' + esc(x.d) + '</p>' : '') +
     metaRow(x) +
     '<dl>' + row('Partner', x.p ? esc(x.p) : '') + row('Integration', x.i ? esc(x.i) : '') + row('Reference', x.ref ? '<span class="mono">' + esc(x.ref) + '</span>' : '') +
