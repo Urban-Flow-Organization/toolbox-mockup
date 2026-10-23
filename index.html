@@ -189,6 +189,62 @@ main.focusmain{max-width:1600px;padding:20px 28px 32px}
 .step:last-child svg{display:none}
 .item{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;padding:14px;border-radius:12px;border:1px solid var(--line)}
 
+
+/* ---------- tools & partners directory ---------- */
+.tdir-bar{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center}
+.tdir-search{border-radius:999px!important;padding:8px 16px!important}
+.tdir-tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:4px 14px;border-radius:999px;border:1.5px solid var(--tc,var(--line2));background:#fff;color:var(--ink);font-size:13px;font-weight:700}
+.tag i{width:10px;height:10px;border-radius:50%;background:var(--tc,var(--line2));display:inline-block}
+.tag b{font-weight:600;opacity:.75}
+button.tag:not([aria-pressed="true"]):hover{background:var(--tb,#f3f5f4)}
+.tag[aria-pressed="true"]{background:var(--tc,var(--g800));color:var(--tx,#fff);border-color:var(--tc,var(--g800))}
+.tag[aria-pressed="true"] i{background:var(--tx,#fff)}
+.tag.static{min-height:26px;padding:2px 10px;font-size:12px;background:var(--tb,#f3f5f4);white-space:nowrap}
+.tag.static.fill{background:var(--tc);color:var(--tx,#fff);border-color:var(--tc);font-weight:800}
+.tag.static.fill i{background:var(--tx,#fff)}
+.tdir{width:100%;border-collapse:separate;border-spacing:0 6px;font-size:14px}
+.tdir th{text-align:left;padding:10px 14px;background:var(--g900);color:#fff;font-size:13px;white-space:nowrap}
+.tdir th:first-child{border-radius:10px 0 0 10px}.tdir th:last-child{border-radius:0 10px 10px 0}
+.tdir td{padding:0;background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.tdir td:first-child{border-left:1px solid var(--line);border-radius:10px 0 0 10px}.tdir td:last-child{border-right:1px solid var(--line);border-radius:0 10px 10px 0}
+.tdir tr.dirrow:hover td{background:var(--lime-tint)}
+.tdir .cellbtn{display:block;width:100%;text-align:left;border:0;background:transparent;padding:12px 14px;min-height:48px;font:inherit}
+.tdir .tn{font-weight:700;color:var(--g800)}
+.tdir .tn small{display:block;font-weight:500;font-size:12px;color:var(--muted)}
+.tdir-count{font-size:13px;color:var(--muted)}
+.tdir tr.dirgrp td{padding:11px 16px;border:0;border-radius:10px}
+.tdir tr.dirgrp.mp td{background:var(--g800);color:var(--lime)}
+.tdir tr.dirgrp.oth td{background:#dfe4e1;color:var(--g800)}
+.dirgrp .gt{display:inline-flex;align-items:center;gap:8px;margin-right:12px;font-weight:800;font-size:15px;vertical-align:middle}
+.dirgrp .gs{font-size:13px;opacity:.85}
+.dirgrp .gc{float:right;font-size:13px;font-weight:700}
+@media (max-width:700px){.dirgrp .gs{display:none}}
+.tdir-f{display:flex;flex-direction:column;gap:4px;flex:1 1 180px;min-width:0;font-size:12px;font-weight:700;color:var(--g600)}
+.tdir-f select,.tdir-f input{min-height:44px;width:100%;border:1.5px solid var(--line2);border-radius:12px;padding:6px 12px;font:inherit;font-weight:500;background:#fff;color:var(--ink)}
+.tdir-bar{align-items:flex-end}
+.tdir-reset{min-height:44px}
+.tdir-dd{position:relative}
+.tdir-dd-btn{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:44px;width:100%;border:1.5px solid var(--line2);border-radius:12px;padding:6px 12px;background:#fff;color:var(--ink);font:inherit;font-weight:500;text-align:left}
+.tdir-dd-btn[aria-expanded="true"]{border-color:var(--g800)}
+.tdir-dd-panel{position:absolute;top:calc(100% + 4px);left:0;z-index:30;width:max-content;min-width:100%;max-width:min(380px,90vw);max-height:420px;overflow-y:auto;background:#fff;border:1px solid var(--line2);border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,.2);padding:6px;display:flex;flex-direction:column;gap:2px}
+.tdir-opt{display:flex;align-items:center;gap:10px;width:100%;min-height:40px;padding:6px 10px;border:0;border-radius:8px;background:transparent;text-align:left;font:inherit;color:var(--ink)}
+.tdir-opt:hover{background:var(--lime-tint)}
+.tdir-opt[aria-selected="true"]{background:#f1f4ef}
+.tdir-opt.ind{padding-left:18px}
+.tdir-opt .n{margin-left:auto;font-size:12px;color:var(--muted);font-weight:600}
+.tdir-opt .ck{color:var(--g600);font-weight:800}
+.tdir-opt .dd-plain,.tdir-dd-btn .dd-plain{font-weight:600}
+.tdir-dd-panel .dd-h{margin:8px 10px 2px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.tag.static.fill.dd-mp{background:var(--g800);border-color:var(--g800);color:var(--lime)}
+.tag.static.fill.dd-mp i{background:var(--lime)}
+.tdir-reset:disabled{opacity:.45;cursor:default}
+.tdir-empty{padding:28px;text-align:center;color:var(--muted)}
+@media (max-width:700px){.tdir th.hm,.tdir td.hm{display:none}}
+.tdet h3{margin:0 0 6px;font-size:15px}
+.tdet dl{margin:0;display:grid;grid-template-columns:max-content 1fr;gap:6px 16px;font-size:14px}
+.tdet dt{font-weight:700;color:var(--g600)}.tdet dd{margin:0;min-width:0}
+
 /* ---------- architecture ---------- */
 .legend{display:flex;flex-wrap:wrap;gap:14px;font-size:13px}
 .legend span{display:flex;align-items:center;gap:6px}
@@ -247,8 +303,13 @@ main.focusmain{max-width:1600px;padding:20px 28px 32px}
 .cf-stats .st strong{font-size:20px;font-weight:800;color:var(--lime);line-height:1}
 .cf-stats .st svg{border-radius:3px;box-shadow:0 0 0 1px rgba(255,255,255,.4)}
 .cf-stats .wp{background:var(--lime);color:var(--g900)}
-.asfg{padding:10px;border-radius:10px;background:var(--g600);display:flex;flex-direction:column;gap:6px}
-.asfg h3{margin:0 0 2px;color:var(--lime);font-size:14px;text-align:center}
+.asfg{padding:10px 10px 10px 12px;border-radius:10px;background:var(--g600);border-left:8px solid var(--dc,var(--lime));display:grid;grid-template-columns:200px minmax(0,1fr);gap:10px 14px;align-items:center}
+.asfg h3{margin:0;font-size:14px;text-align:left;line-height:1.25}
+.asfg .dpill{display:inline-block;padding:6px 14px;border-radius:999px;background:var(--dc,var(--lime));color:var(--dx,var(--g900));font-weight:800}
+.asft .blk{border-left:5px solid var(--dc,var(--lime))}
+.asft{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px}
+.asft .blk{display:flex;align-items:center;justify-content:center;text-align:center;min-height:46px}
+@media (max-width:760px){.asfg{grid-template-columns:1fr}}
 .asfg .blk:hover{background:var(--lime-tint);filter:none}
 
 /* ---------- overlays ---------- */
@@ -1023,7 +1084,7 @@ function buildData() {
       { id: 'ec_rec', n: 'EC Customer Recommendations', an: 'EC Customer Recommendations', g: 'Energy Communities', L: 'asf', s: 'D3.1 §4.3.9.1', who: 'TEC', pv: 'chart',
         sum: 'Analyses energy-community simulation outputs and participant profiles to suggest actions. The first capability recommends EV charging locations and time windows from surplus PV energy.',
         f: ['EV charging siting scores', 'Recommended charging hours', 'Heterogeneous participant profiles', 'Vulnerability-aware weighting'],
-        tech: 'Python, FastAPI · POST /api/v1/rec/simulate', repos: [R('LDT-Energy-Communities (listed in D3.1)', UFO + 'LDT-Energy-Communities')], rel: ['ec_dist', 'ev_plan', 'dash'],
+        tech: 'Python, FastAPI · POST /api/v1/rec/simulate', repos: [R('LDT-Energy-Communities (listed in D3.1)', UFO + 'LDT-Energy-Communities')], rel: ['ec_dist', 'ev_cp', 'dash'],
         chartTitle: 'Suitability for shared EV charging, by hour', unit: '', chartNote: 'Score 0–100 from surplus PV, demand overlap and public access. Sample values.', ser: [['06', 10], ['08', 35], ['10', 72], ['12', 90], ['14', 84], ['16', 55], ['18', 22], ['20', 8]] },
       { id: 'ec_dist', n: 'EC Energy Distribution Planning & Optimisation', an: 'EC Energy Distribution Planning & Optimisation', g: 'Energy Communities', L: 'asf', s: 'D3.1 §4.3.9', who: 'TEC, KENT', pv: 'chart',
         sum: 'Optimises how shared PV energy is allocated hour by hour among community members: LSTM forecasting, battery control, MILP optimisation of grid-import cost and a social-fairness adjustment. Kentyou City Energy Management adds consumption monitoring of municipal buildings.',
@@ -1040,25 +1101,15 @@ function buildData() {
         f: ['Daily curb-side usage slots and temporary overrides', 'Dynamic parking pricing scenarios', 'Threshold alerts on occupancy and turnover', 'Traffic monitoring and anomaly detection'],
         tech: 'React, MapLibre, Deck.gl, MongoDB, NATS, MQTT; Kubernetes on AWS', repos: [R('PARCAR', UFO + 'Parcar'), R('INES Cloud', UFO + 'Municipia-INESCloud'), R('MUV App', UFO + 'Municipia-MUVApp')], rel: ['space_plan', 'alerts', 'ldt', 'epart'],
         cols: ['Curb segment', 'Default use', 'Temporary use', 'Window'], rows: [['Segment A', 'Residents parking', 'Loading / unloading', '08:00–11:00'], ['Segment B', 'General parking', 'Outdoor dining', '19:00–23:00'], ['Segment C', 'Taxi stop', 'Event drop-off', 'Saturday'], ['Segment D', 'General parking', 'School drop-off', '07:45–08:30']], tableNote: 'Sample schedule.' },
-      { id: 'ev_plan', n: 'EV Charging Planning', an: 'Planning', g: 'EV Charging Infrastructure', L: 'asf', s: 'D3.1 §4.3.11.2', who: '', pv: 'map',
-        sum: 'AI for Soft Mobility Placement: machine learning, geospatial analysis and multi-criteria optimisation to place EV charging stations, cargo-bike hubs and shared-mobility services. Already validated in Barcelona and Paris-Saclay.',
-        f: ['Demand, accessibility and land-use criteria', 'Budget and infrastructure constraints', 'Deployment scenarios', 'Coverage KPIs in a dashboard'],
-        tech: 'Machine learning, geospatial analysis, multi-criteria optimisation', repos: [], rel: ['ev_cp', 'ec_rec', 'space_plan'],
-        mapCaption: 'Candidate sites · scenario 2', mk: [['Site 1', 24, 30, ORANGE], ['Site 2', 52, 46, ORANGE], ['Site 3', 76, 64, ORANGE], ['Existing charger', 40, 76, BLUE]], lg: [['Candidate site', ORANGE], ['Existing charger', BLUE]] },
       { id: 'ev_cp', n: 'EV Charging Point Management', an: 'EV CP Management', g: 'EV Charging Infrastructure', L: 'asf', s: 'D3.1 §4.3.11.1', who: 'ETRA', pv: 'chart',
         sum: 'Electra optimises e-bus depot charging: linear optimisation of charging curves against energy cost, number of chargers, number of buses and schedules, with real-time battery state and remaining-time forecasts.',
         f: ['Optimal charging curves and charger occupation', 'Peak-power reduction', 'Real-time bus and charger status in the depot', 'Remaining-time forecasts'],
-        tech: 'Node.js, .NET, NATS, MQTT/RabbitMQ, Meteor (DDP), MongoDB, PostgreSQL, Keycloak', repos: [R('Electra', UFO + 'Electra')], rel: ['ev_plan', 'ec_dist', 'dash'],
+        tech: 'Node.js, .NET, NATS, MQTT/RabbitMQ, Meteor (DDP), MongoDB, PostgreSQL, Keycloak', repos: [R('Electra', UFO + 'Electra')], rel: ['ec_dist', 'ccav_op', 'dash'],
         chartTitle: 'Depot charging load, by hour', unit: 'kW', chartNote: 'Sample optimised profile.', ser: [['22', 180], ['23', 240], ['00', 260], ['01', 250], ['02', 230], ['03', 210], ['04', 160], ['05', 90]] },
-      { id: 'ccav_ch', n: 'CCAV Charging', an: 'Charging', g: 'CCAV Fleet', L: 'asf', s: 'GA T5.3', who: 'VTT', pv: 'chart',
-        sum: 'Models the energy needs of electric automated vehicles over a service day to plan optimal charging cycles, including V2G and depot or on-route charging. Experiments run on the TATEBE testbed in Tampere.',
-        f: ['Daily energy-need modelling', 'Optimal charging cycles', 'Bi-directional charging (V2G)', 'Depot and on-route charging'],
-        tech: 'TATEBE EV charging testbed', repos: [], rel: ['ccav_op', 'ev_cp'],
-        chartTitle: 'Shuttle battery state of charge over a service day', unit: '%', chartNote: 'Sample profile with a midday top-up.', ser: [['06', 100], ['08', 82], ['10', 64], ['12', 48], ['13', 80], ['15', 62], ['17', 44], ['19', 30]] },
       { id: 'ccav_op', n: 'CCAV Operational Optimisation', an: 'Operational Optimization', g: 'CCAV Fleet', L: 'asf', s: 'D3.1 §4.3.12', who: 'REM', pv: 'table',
         sum: 'Remote Control Center supervising Level-4 automated shuttles: fleet monitoring, remote assistance, incident and safety management. Use case: the shuttle between Hervantajärvi tram stop and Lintuhytti in Tampere.',
         f: ['Fleet monitoring', 'Remote supervision and assistance', 'Incident and safety management', 'Service analytics'],
-        tech: 'Remote Control Center (Remoted)', repos: [], rel: ['ccav_ch', 'alerts'],
+        tech: 'Remote Control Center (Remoted)', repos: [], rel: ['ev_cp', 'alerts'],
         cols: ['Vehicle', 'Status', 'Route', 'Assistance'], rows: [['Shuttle 1', 'In service', 'Hervantajärvi – Lintuhytti', 'None'], ['Shuttle 2', 'Charging', 'Depot', 'None'], ['Shuttle 3', 'Stopped', 'Lintuhytti', 'Requested']], tableNote: 'Sample fleet status.' },
 
       { id: 'kpim', n: 'KPI Manager', L: 'kpi', s: 'D3.1 §4.3.13', who: 'ENG', pv: 'chart',
@@ -1204,7 +1255,7 @@ function buildData() {
     T.forEach(function (t) { byId[t.id] = t; });
     var mods = T.filter(function (t) { return !t.ext; }).map(function (t) { return t.id; });
     var CIT = ['ldt', 'dash', 'cat', 'kpicat', 'epart', 'agent', 'thermal', 'clim_alert', 'datacat'];
-    var STK = CIT.concat(['ec_rec', 'ec_dist', 'space_plan', 'space_dyn', 'ev_plan', 'ev_cp', 'ccav_ch', 'ccav_op', 'kpim', 'pub', 'dsc', 'dmv']);
+    var STK = CIT.concat(['ec_rec', 'ec_dist', 'space_plan', 'space_dyn', 'ev_cp', 'ccav_op', 'kpim', 'pub', 'dsc', 'dmv']);
     var OFF = mods.filter(function (id) { return ['admin', 'users', 'authz', 'authn', 'obj', 'sdb'].indexOf(id) < 0; });
     var rbac = { 'Municipality': OFF.concat(['users']), 'City Officer': OFF, 'Citizen': CIT, 'Stakeholder': STK, 'Platform Operator': mods };
     var roleNames = ['Municipality', 'City Officer', 'Citizen', 'Stakeholder', 'Platform Operator'];
@@ -1214,7 +1265,7 @@ function buildData() {
     });
     var arch = {
       ui: ['admin', 'agent', 'ldt', 'dash', 'cat', 'kpicat', 'epart'],
-      asf: [['Climate Resilience / Adaptation', ['clim_alert', 'thermal']], ['Energy Communities', ['ec_rec', 'ec_dist']], ['Space & Infrastructures', ['space_plan', 'space_dyn']], ['EV Charging Infrastructure', ['ev_plan', 'ev_cp']], ['CCAV Fleet', ['ccav_ch', 'ccav_op']]],
+      asf: [['Climate Resilience / Adaptation', ['clim_alert', 'thermal']], ['Energy Communities', ['ec_rec', 'ec_dist']], ['Space & Infrastructures', ['space_plan', 'space_dyn']], ['EV Charging Infrastructure', ['ev_cp']], ['CCAV Fleet', ['ccav_op']]],
       kpi: ['kpim', 'rule', 'alerts'], dpo: ['wf', 'mashup', 'pub'],
       dm: ['obj', 'dcat', 'datacat', 'sdb', 'geo', 'inspire', 'dpf', 'drf', 'dmv'],
       dc: ['c_open', 'c_iot', 'c_it', 'c_repo'], src: ['s_it', 's_open', 's_gis', 's_iot', 's_maps'],
@@ -1261,7 +1312,7 @@ if (!CFG || typeof CFG !== 'object') {
 }
 function fromCfg(t, where) {
   if (!t || !t.name) { CFG_ERR.push('A tool in "' + where + '" has no "name".'); return null; }
-  return { n: t.name, p: t.partner || '', os: !!t.openSource, i: t.integration || '', ref: t.reference || '', d: t.description || '', r: (t.repositories || []).filter(function (r) { return r && r.url; }).map(function (r) { return { label: r.label || r.url, url: r.url }; }), cities: t.cities || [], wp: t.wp || '', tasks: t.tasks || '' };
+  return { n: t.name, p: t.partner || '', os: !!t.openSource, i: t.integration || '', ref: t.reference || '', d: t.description || '', r: (t.repositories || []).filter(function (r) { return r && r.url; }).map(function (r) { return { label: r.label || r.url, url: r.url }; }), cities: t.cities || [], wp: t.wp || '', tasks: t.tasks || '', sn: t.shortName || '', ord: t.order || 99 };
 }
 function toolsFrom(list, where) { return (list || []).map(function (t) { return fromCfg(t, where); }).filter(Boolean); }
 (CFG.newMarketplaceBlocks || []).forEach(function (nb) {
@@ -1353,15 +1404,16 @@ var FOOT = function () {
 
 /* ---------- routing (hash) ---------- */
 function toHash() {
-  var h = S.view === 'comic' ? '#/comic/' + ((S.cch || 0) + 1) + '/' + ((S.cpn || 0) + 1) : S.view === 'tour' ? '#/tour/' + ((S.tour || 0) + 1) : S.view === 'journey' ? '#/journey' : S.view === 'story' ? (S.story ? storyHash() : '#/stories') : S.view === 'tool' || S.view === 'denied' ? '#/module/' + S.toolId : S.view === 'arch' ? '#/architecture' + (S.focus ? '/focus' : '') + (S.sel ? '/' + S.sel : '') : '#/';
+  var h = S.view === 'comic' ? '#/comic/' + ((S.cch || 0) + 1) + '/' + ((S.cpn || 0) + 1) : S.view === 'tour' ? '#/tour/' + ((S.tour || 0) + 1) : S.view === 'journey' ? '#/journey' : S.view === 'tools' ? '#/tools' : S.view === 'story' ? (S.story ? storyHash() : '#/stories') : S.view === 'tool' || S.view === 'denied' ? '#/module/' + S.toolId : S.view === 'arch' ? '#/architecture' + (S.focus ? '/focus' : '') + (S.sel ? '/' + S.sel : '') : '#/';
   if (location.hash !== h) { try { history.pushState(null, '', h); } catch (e) { location.hash = h; } }
 }
 function fromHash() {
   var h = location.hash.replace(/^#\/?/, '').split('/');
-  S.focus = false;
+  S.focus = false; S.tsel = null;
   if (h[0] === 'module' && D.byId[h[1]] && !D.byId[h[1]].ext) { S.view = allowed(h[1]) ? 'tool' : 'denied'; S.toolId = h[1]; S.sel = null; }
   else if (h[0] === 'comic') { S.view = 'comic'; S.cch = Math.max(0, (parseInt(h[1], 10) || 1) - 1); S.cpn = Math.max(0, (parseInt(h[2], 10) || 1) - 1); if (UC) { S.cch = Math.min(S.cch, UC.chapters.length - 1); S.cpn = Math.min(S.cpn, UC.chapters[S.cch].panels.length - 1); } S.toolId = null; S.sel = null; }
   else if (h[0] === 'tour') { S.view = 'tour'; S.tour = Math.max(0, (parseInt(h[1], 10) || 1) - 1); S.toolId = null; S.sel = null; }
+  else if (h[0] === 'tools') { S.view = 'tools'; S.toolId = null; S.sel = null; }
   else if (h[0] === 'journey') { S.view = 'journey'; S.toolId = null; S.sel = null; }
   else if (h[0] === 'stories') { S.view = 'story'; S.story = null; S.toolId = null; S.sel = null; }
   else if (h[0] === 'story') { S.view = 'story'; S.story = storyById(h[1]) ? h[1] : null; var st0 = storyById(h[1]); S.ch = st0 ? Math.max(0, Math.min((st0.chapters || []).length, (parseInt(h[2], 10) || 1) - 1)) : 0; S.toolId = null; S.sel = null; }
@@ -1370,9 +1422,10 @@ function fromHash() {
   S.menu = false;
 }
 function nav(id) {
-  S.focus = false;
+  S.focus = false; S.tsel = null; S.ddopen = false;
   if (id === 'comic') { set({ view: 'comic', toolId: null, sel: null, menu: false }); toHash(); window.scrollTo(0, 0); return; }
   if (id === 'tour') { set({ view: 'tour', toolId: null, sel: null, menu: false }); toHash(); window.scrollTo(0, 0); return; }
+  if (id === 'tools') { set({ view: 'tools', toolId: null, sel: null, menu: false, tsel: null }); toHash(); window.scrollTo(0, 0); return; }
   if (id === 'journey') { set({ view: 'journey', toolId: null, sel: null, menu: false }); toHash(); window.scrollTo(0, 0); return; }
   if (id === 'stories') { set({ view: 'story', story: null, toolId: null, sel: null, menu: false }); toHash(); window.scrollTo(0, 0); return; }
   if (id === 'home' || id === 'arch') set({ view: id, toolId: null, sel: null, menu: false });
@@ -1409,6 +1462,7 @@ var SI = (function () {
     gear: s('<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1L7 17M17 7l2.1-2.1"/>'),
     book: s('<path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 21V5M8 7h7M8 11h5"/>'),
     arch: s('<rect x="3" y="3" width="18" height="5" rx="1"/><rect x="3" y="10" width="8" height="11" rx="1"/><rect x="13" y="10" width="8" height="11" rx="1"/>'),
+    list: s('<path d="M9 6h12M9 12h12M9 18h12"/><circle cx="4.5" cy="6" r="1.2"/><circle cx="4.5" cy="12" r="1.2"/><circle cx="4.5" cy="18" r="1.2"/>'),
     shield: s('<path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/>'),
     chev: '<svg class="schev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>',
     full: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5M4 4l6 6M20 4l-6 6M4 20l6-6M20 20l-6-6"/></svg>',
@@ -1420,6 +1474,7 @@ function sideNav() {
   var mods = function (ids) { return ids.filter(function (id) { var e = D.byId[id]; return e && !e.ext && !e.mod; }); };
   return [
     { sec: 'Tools' },
+    { view: 'tools', icon: 'list', label: 'Tools & partners' },
     { grp: 'ldt', icon: 'twin', label: 'Local Digital Twin', cities: ['Valencia', 'Florence', 'Tampere'] },
     { id: 'cat', icon: 'box', label: 'Urban Regeneration Catalogue' },
     { grp: 'kpi', icon: 'gauge', label: 'KPI & Analytics', items: mods(['kpicat', 'kpim', 'rule', 'alerts', 'dash']) },
@@ -1467,7 +1522,7 @@ function vSide() {
     var inner = '';
     if (open) {
       inner = '<div class="sgrp">' + (it.cities ? it.cities.map(function (c) { var a3 = isAct('ldt') && S.city === c; return '<button type="button" class="sitem sub' + (a3 ? ' active' : '') + '" data-act="ldtcity" data-arg="' + c + '"' + (a3 ? ' aria-current="page"' : '') + '><span class="sl" style="display:flex;align-items:center;gap:8px">' + cflag(c) + esc(c) + '</span></button>'; }).join('') : it.items ? it.items.map(function (id) { return link(id, null, D.byId[id].n, true); }).join('') :
-        it.domains.map(function (g) { return '<p class="sdom">' + esc(g[0]) + '</p>' + g[1].map(function (id) { return link(id, null, D.byId[id].n, true); }).join(''); }).join('')) + '</div>';
+        it.domains.map(function (g) { return '<p class="sdom">' + esc(g[0]) + '</p>' + mpItems(g).map(function (t) { var a4 = isAct(t.b.id); return '<button type="button" class="sitem sub' + (a4 ? ' active' : '') + '" data-act="tsel" data-arg="' + esc(t.key) + '"><span class="sl">' + esc(mpLabel(t)) + '</span>' + lockIf(t.b.id) + '</button>'; }).join(''); }).join('')) + '</div>';
     }
     return '<div class="sgroup' + (it.mp ? ' mp' : '') + '"><button type="button" class="sitem shead' + (anyAct && !open ? ' active' : '') + (it.mp ? ' mp' : '') + '" data-act="sgrp" data-arg="' + it.grp + '" aria-expanded="' + open + '"' + (mini ? ' title="' + esc(it.label) + '" aria-label="' + esc(it.label) + '"' : '') + '>' +
       SI[it.icon] + '<span class="sl">' + esc(it.label) + (it.mp ? ' <span class="mptag">Analyse · Simulate · Forecast</span>' : '') + '</span>' + SI.chev + '</button>' + inner + '</div>';
@@ -1847,6 +1902,142 @@ function repoSummary(t) {
   return '<div class="tbl2 repos"><table><thead><tr><th>Tool</th><th>Partner</th><th>Cities</th><th>WP · Task</th><th>Repositories</th></tr></thead><tbody>' + rows.join('') + '</tbody></table></div>';
 }
 
+/* ---------- Tools & partners directory ---------- */
+var TDOM_COL = {
+  'Climate Resilience / Adaptation': ['#D38758', '#F7E8DE', '#1C1C1C'],
+  'Energy Communities': ['#7FAB5A', '#E8F1DF', '#1C1C1C'],
+  'Space & Infrastructures': ['#67A5D1', '#E0EEF8', '#1C1C1C'],
+  'EV Charging Infrastructure': ['#EFCA63', '#FBF2D5', '#1C1C1C'],
+  'CCAV Fleet': ['#914596', '#EEDDEF', '#FFFFFF']
+};
+function toolList() {
+  var seen = [], out = [];
+  D.T.forEach(function (b) {
+    (DT[b.id] || []).forEach(function (x, i) {
+      if (seen.indexOf(x) >= 0) return;
+      seen.push(x);
+      var dom = b.g || D.LM[b.L].name, col = TDOM_COL[dom] || [D.LM[b.L].c, D.LM[b.L].bg];
+      out.push({ x: x, b: b, dom: dom, c: col[0], bg: col[1], tx: col[2] || '#fff', mp: b.L === 'asf', key: b.id + '|' + i });
+    });
+  });
+  var dIdx = function (it) { if (it.mp) return D.arch.asf.map(function (g) { return g[0]; }).indexOf(it.dom); return 100 + Object.keys(D.LM).indexOf(it.b.L); };
+  out.sort(function (a, b) { return (dIdx(a) - dIdx(b)) || (a.mp ? (a.x.ord - b.x.ord) : a.x.n.localeCompare(b.x.n)); });
+  return out;
+}
+function isMpBlock(id) { return !!(D.byId[id] && D.byId[id].L === 'asf'); }
+function mpItems(g) {
+  var out = [];
+  g[1].forEach(function (id) { var b = D.byId[id]; (DT[id] || []).forEach(function (x, i) { out.push({ x: x, b: b, key: id + '|' + i }); }); });
+  out.sort(function (a, c) { return a.x.ord - c.x.ord; });
+  return out;
+}
+function mpLabel(it) { return it.x.sn || it.x.n; }
+function tagHTML(it) {
+  return '<span class="tag static' + (it.mp ? ' fill' : '') + '" style="--tc:' + it.c + ';--tb:' + it.bg + ';--tx:' + it.tx + '"><i></i>' + esc(it.dom) + '</span>';
+}
+function tdirPartners(x) { return (x.p || '').split(',').map(function (z) { return z.trim(); }).filter(Boolean); }
+function tdirQ(it) { return (it.x.n + ' ' + (it.x.sn || '') + ' ' + (it.x.p || '') + ' ' + it.dom + ' ' + (it.b.an || it.b.n)).toLowerCase(); }
+function ddPill(d) {
+  if (!d) return '<span class="dd-plain">All</span>';
+  if (d.key === '__mp') return '<span class="tag static fill dd-mp"><i></i>Marketplace</span>';
+  return '<span class="tag static' + (d.mp ? ' fill' : '') + '" style="--tc:' + d.c + ';--tb:' + d.bg + ';--tx:' + d.tx + '"><i></i>' + esc(d.dom) + '</span>';
+}
+function tdirDomainDD(doms, nAll, nMp) {
+  var cur = S.tdom === '__mp' ? { key: '__mp' } : (doms.filter(function (d) { return d.dom === S.tdom; })[0] || null);
+  var opt = function (key, inner, n, extra) {
+    var on = (S.tdom || '') === key;
+    return '<button type="button" class="tdir-opt' + (extra || '') + '" role="option" aria-selected="' + on + '" data-act="ddpick" data-arg="' + esc(key) + '">' + inner + '<span class="n">' + n + '</span>' + (on ? '<span class="ck" aria-hidden="true">✓</span>' : '') + '</button>';
+  };
+  var mpDoms = doms.filter(function (d) { return d.mp; }), plat = doms.filter(function (d) { return !d.mp; });
+  return '<div class="tdir-f tdir-dd"><span id="dd-l">Domain</span>' +
+    '<button type="button" class="tdir-dd-btn" id="flt-tdom" data-act="ddtoggle" aria-haspopup="listbox" aria-expanded="' + !!S.ddopen + '" aria-labelledby="dd-l flt-tdom">' + ddPill(cur) + '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>' +
+    (S.ddopen ? '<div class="tdir-dd-panel" role="listbox" aria-label="Domain">' +
+      opt('', '<span class="dd-plain">All domains</span>', nAll) +
+      opt('__mp', ddPill({ key: '__mp' }), nMp) +
+      '<p class="dd-h">Marketplace domains</p>' + mpDoms.map(function (d) { return opt(d.dom, ddPill(d), d.n, ' ind'); }).join('') +
+      '<p class="dd-h">Platform layers</p>' + plat.map(function (d) { return opt(d.dom, ddPill(d), d.n, ' ind'); }).join('') +
+    '</div>' : '') + '</div>';
+}
+function vToolsDir() {
+  var all = toolList(), doms = [], pc = {}, osN = 0;
+  all.forEach(function (it) {
+    var f = doms.filter(function (d) { return d.dom === it.dom; })[0]; if (f) f.n++; else doms.push({ dom: it.dom, c: it.c, bg: it.bg, tx: it.tx, mp: it.mp, n: 1 });
+    tdirPartners(it.x).forEach(function (p) { pc[p] = (pc[p] || 0) + 1; });
+    if (it.x.os) osN++;
+  });
+  var q = (S.tq || '').trim().toLowerCase();
+  var list = all.filter(function (it) {
+    return (!S.tdom || (S.tdom === '__mp' ? it.mp : it.dom === S.tdom)) && (!S.ttool || it.key === S.ttool) &&
+      (!S.tpar || (S.tpar === '__os' ? !!it.x.os : tdirPartners(it.x).indexOf(S.tpar) >= 0));
+  });
+  var shown = list.filter(function (it) { return !q || tdirQ(it).indexOf(q) >= 0; }).length;
+  var active = !!(S.tdom || S.tpar || S.ttool || q);
+  var tname = function (it) { return it.mp ? mpLabel(it) : it.x.n; };
+  var sel = function (id, label, opts, val) {
+    return '<label class="tdir-f"><span>' + label + '</span><select id="flt-' + id + '" data-flt="' + id + '"><option value="">All</option>' + opts.map(function (o) {
+      return '<option value="' + esc(o[0]) + '"' + (o[0] === val ? ' selected' : '') + '>' + esc(o[1]) + '</option>';
+    }).join('') + '</select></label>';
+  };
+  var toolOpts = all.slice().sort(function (a, b) { return tname(a).localeCompare(tname(b)); }).map(function (it) { return [it.key, tname(it)]; });
+  var parOpts = Object.keys(pc).sort(function (a, b) { return a.localeCompare(b); }).map(function (p) { return [p, p + ' (' + pc[p] + ')']; }).concat([['__os', 'Open source (' + osN + ')']]);
+  var domOpts = [['__mp', 'Marketplace (' + all.filter(function (it) { return it.mp; }).length + ')']].concat(doms.map(function (d) { return [d.dom, d.dom + ' (' + d.n + ')']; }));
+  var chips = '<button type="button" class="tag" data-act="tdom" data-arg="" aria-pressed="' + !S.tdom + '">All <b>' + all.length + '</b></button>' + doms.map(function (d) {
+    return '<button type="button" class="tag" style="--tc:' + d.c + ';--tb:' + d.bg + ';--tx:' + d.tx + '" data-act="tdom" data-arg="' + esc(d.dom) + '" aria-pressed="' + (S.tdom === d.dom) + '"><i></i>' + esc(d.dom) + ' <b>' + d.n + '</b></button>';
+  }).join('');
+  var rowsArr = list.map(function (it) {
+    var x = it.x, b = it.b, dq = tdirQ(it);
+    var partner = x.p ? esc(x.p) + (x.os ? ' <span class="partner os" style="margin-left:4px">Open source</span>' : '') : (x.os ? '<span class="partner os">Open source</span>' : '<span class="small">—</span>');
+    var btn = function (inner, first) { return '<button type="button" class="cellbtn" data-act="tsel" data-arg="' + esc(it.key) + '"' + (first ? '' : ' tabindex="-1" aria-hidden="true"') + '>' + inner + '</button>'; };
+    return '<tr class="dirrow" data-g="' + (it.mp ? 'mp' : 'oth') + '" data-q="' + esc(dq) + '"' + (q && dq.indexOf(q) < 0 ? ' style="display:none"' : '') + '>' +
+      '<td style="border-left:7px solid ' + it.c + '">' + btn('<span class="tn">' + esc(tname(it)) + (it.mp ? (x.sn && x.sn !== x.n ? '<small>' + esc(x.n) + '</small>' : '') : '<small>' + esc(b.an || b.n) + '</small>') + '</span>', true) + '</td>' +
+      '<td>' + btn(partner) + '</td>' +
+      '<td>' + btn(tagHTML(it)) + '</td>' +
+      '<td class="hm">' + btn('<span class="small">' + esc(x.ref || b.s || '') + '</span>') + '</td></tr>';
+  });
+  var seenQ = function (it) { return !q || tdirQ(it).indexOf(q) >= 0; };
+  var gN = { mp: list.filter(function (it) { return it.mp && seenQ(it); }).length, oth: list.filter(function (it) { return !it.mp && seenQ(it); }).length };
+  var gHead = function (g, icon, title, sub) {
+    return '<tr class="dirgrp ' + g + '" data-g="' + g + '"' + (gN[g] ? '' : ' style="display:none"') + '><td colspan="4"><span class="gt">' + icon + esc(title) + '</span><span class="gs">' + esc(sub) + '</span><span class="gc"><b class="gn">' + gN[g] + '</b> tools</span></td></tr>';
+  };
+  var rows = '', lastG = '';
+  list.forEach(function (it, i) {
+    var g = it.mp ? 'mp' : 'oth';
+    if (g !== lastG) { rows += g === 'mp' ? gHead('mp', ICON.store(18), 'Marketplace', 'Analyse · Simulate · Forecast – tools offered by the partners and chosen by each city') : gHead('oth', '', 'Other tools', 'Platform and user-interaction components of the Toolbox'); lastG = g; }
+    rows += rowsArr[i];
+  });
+  return '<div class="stack" style="gap:20px">' +
+    '<header class="phead"><div class="ph-l"><h1>Tools &amp; partners</h1></div>' +
+    '<nav class="pcrumb" aria-label="Breadcrumb"><button type="button" data-act="nav" data-arg="home">Home</button><span aria-hidden="true">›</span><span aria-current="page">Tools &amp; partners</span></nav></header>' +
+    '<section class="card" style="padding:20px;display:flex;flex-direction:column;gap:14px" aria-label="Tool directory">' +
+    '<p style="margin:0;color:var(--ink2)">All the tools of the Toolbox with the partner that develops them. Filter by tool, partner or domain, search by name, and click a tool to see its details.</p>' +
+    '<div class="tdir-bar"><label class="tdir-f" style="flex:2 1 260px"><span>Search</span><input class="kpisearch tdir-search" type="search" value="' + esc(S.tq || '') + '" placeholder="Search tool, partner or domain" aria-label="Search tools"></label>' +
+    sel('ttool', 'Tool', toolOpts, S.ttool) + sel('tpar', 'Partner', parOpts, S.tpar) + tdirDomainDD(doms, all.length, all.filter(function (it) { return it.mp; }).length) +
+    '<button type="button" class="btn tdir-reset" data-act="treset"' + (active ? '' : ' disabled') + '>Clear filters</button></div>' +
+    '<p class="tdir-count" aria-live="polite" style="margin:0"><strong class="tdir-n">' + shown + '</strong> of ' + all.length + ' tools</p>' +
+    '<div style="overflow-x:auto"><table class="tdir"><thead><tr><th>Tool</th><th>Partner</th><th>Domain</th><th class="hm">Reference</th></tr></thead><tbody>' + rows + '</tbody></table></div>' +
+    '<p class="tdir-empty" style="margin:0;' + (shown ? 'display:none' : '') + '">No tool matches these filters.</p>' +
+    '</section></div>';
+}
+function vToolModal() {
+  var it = toolList().filter(function (z) { return z.key === S.tsel; })[0]; if (!it) return '';
+  var x = it.x, b = it.b, hasMod = D.mods.indexOf(b.id) >= 0;
+  var row = function (k, v) { return v ? '<dt>' + k + '</dt><dd>' + v + '</dd>' : ''; };
+  return '<div class="overlay modalwrap" style="z-index:60"><button type="button" class="scrim" data-act="tclose" aria-label="Close"></button>' +
+    '<div class="modal tdet" role="dialog" aria-modal="true" aria-labelledby="td-h">' +
+    '<div class="mh ' + (it.mp ? 'mp' : '') + '" style="border-bottom:6px solid ' + it.c + '"><div class="stack" style="gap:4px"><span class="eyebrow" style="color:inherit;opacity:.8">Tool · ' + esc(it.dom) + '</span><h2 id="td-h">' + esc(x.n) + '</h2></div>' +
+    '<button type="button" class="iconbtn" data-act="tclose" aria-label="Close" style="border:1.5px solid currentColor;background:transparent;color:inherit">' + ICON.close + '</button></div>' +
+    '<div class="mb">' +
+    '<div class="wrap" style="gap:8px">' + tagHTML(it) + (x.p ? '<span class="partner">' + esc(x.p) + '</span>' : '') + (x.os ? '<span class="partner os">Open source</span>' : '') + '</div>' +
+    (x.d ? '<p>' + esc(x.d) + '</p>' : '') +
+    metaRow(x) +
+    '<dl>' + row('Partner', x.p ? esc(x.p) : '') + row('Integration', x.i ? esc(x.i) : '') + row('Reference', x.ref ? '<span class="mono">' + esc(x.ref) + '</span>' : '') +
+      row('Module', esc(it.mp ? b.n : (b.an || b.n)) + (hasMod ? ' ' + lockIf(b.id) : '')) + row('Layer', layerBadge(b.L)) +
+      row('Repositories', '<div class="stack" style="gap:2px">' + repoLinks(x.r, 'GitHub repository not public yet') + '</div>') + '</dl>' +
+    '<div class="wrap" style="gap:10px">' + (hasMod ? '<button type="button" class="btn primary" data-act="nav" data-arg="' + esc(b.id) + '">Open module</button>' : '') +
+    (S.view === 'arch' ? '' : '<button type="button" class="btn" data-act="showarch" data-arg="' + esc(b.id) + '">' + ICON.arch + 'Show in architecture</button>') + '</div>' +
+    '</div></div></div>';
+}
+
 function vTool() {
   var t = D.byId[S.toolId], lm = D.LM[t.L];
   var isMp = t.L === 'asf';
@@ -1960,7 +2151,7 @@ var LAYER_BLOCKS = function (k) {
 };
 function vLayerModal() {
   var k = S.layerInfo, L = (CFG.layers || {})[k]; if (!L) return '';
-  var comps = LAYER_BLOCKS(k).map(function (id) { var e = D.byId[id]; return e ? '<button type="button" class="chip" data-act="lsel" data-arg="' + id + '">' + esc(e.an || e.n) + '</button>' : ''; }).join('');
+  var comps = k === 'asf' ? D.arch.asf.map(function (g) { return mpItems(g).map(function (it) { return '<button type="button" class="chip" data-act="ltool" data-arg="' + esc(it.key) + '">' + esc(mpLabel(it)) + '</button>'; }).join(''); }).join('') : LAYER_BLOCKS(k).map(function (id) { var e = D.byId[id]; return e ? '<button type="button" class="chip" data-act="lsel" data-arg="' + id + '">' + esc(e.an || e.n) + '</button>' : ''; }).join('');
   var inter = (L.interactions || []).map(function (it) {
     var O = (CFG.layers || {})[it.layer];
     return '<li><button type="button" class="lchip ' + (it.layer === 'asf' ? 'mp' : '') + '" data-act="layer" data-arg="' + esc(it.layer) + '">' + esc(O ? O.title : it.layer) + '</button><span>' + esc(it.text) + '</span></li>';
@@ -1987,8 +2178,11 @@ function vArch() {
     vCityFilter() +
     '<div class="wrap" style="gap:12px;align-items:stretch"><div class="stack" style="flex:999 1 760px;min-width:0;gap:12px">' +
     '<section class="layer b" aria-label="User Interaction layer"><h2>User Interaction' + infoBtn('ui') + '</h2><div style="' + grid(120, 8) + '">' + A.ui.map(function (id) { return blk(id, 'ui'); }).join('') + '</div></section>' +
-    '<section class="layer mp" aria-label="Analyse Simulate Forecast layer (Marketplace)"><h2>' + ICON.store(22) + 'Analyse · Simulate · Forecast <span class="tag">Marketplace</span>' + infoBtn('asf') + '</h2><div style="' + grid(170, 8) + '">' + A.asf.map(function (g) {
-      return '<div class="asfg"><h3>' + esc(g[0]) + '</h3>' + g[1].map(function (id) { return blk(id); }).join('') + '</div>';
+    '<section class="layer mp" aria-label="Analyse Simulate Forecast layer (Marketplace)"><h2>' + ICON.store(22) + 'Analyse · Simulate · Forecast <span class="tag">Marketplace</span>' + infoBtn('asf') + '</h2><div style="display:flex;flex-direction:column;gap:8px">' + A.asf.map(function (g) {
+      return '<div class="asfg" style="--dc:' + (TDOM_COL[g[0]] || ['#DBF27C'])[0] + ';--dx:' + (TDOM_COL[g[0]] || [0, 0, '#0E201D'])[2] + '"><h3><span class="dpill">' + esc(g[0]) + '</span></h3><div class="asft">' + mpItems(g).map(function (it) {
+        var f = S.archCity ? (toolMatches(it.x, S.archCity, S.archOnly) ? ' hit' : ' dim') : '';
+        return '<button type="button" class="blk hov' + f + (S.tsel === it.key || S.sel === it.b.id ? ' sel' : '') + '" data-act="tsel" data-arg="' + esc(it.key) + '"' + (f === ' hit' ? ' aria-label="' + esc(mpLabel(it) + ' \u2013 involves ' + CITY[S.archCity].name) + '"' : '') + '>' + esc(mpLabel(it)) + '</button>';
+      }).join('') + '</div></div>';
     }).join('') + '</div></section>' +
     '<div class="wrap" style="gap:12px"><section class="layer b" style="flex:1 1 280px;min-width:0" aria-label="KPI Catalogue Management layer"><h2>KPI Catalogue Management' + infoBtn('kpi') + '</h2><div class="stack" style="gap:6px">' + A.kpi.map(function (id) { return blk(id); }).join('') + '</div></section>' +
     '<section class="layer b" style="flex:2 1 420px;min-width:0" aria-label="Data Process Orchestration layer"><h2>Data Process Orchestration' + infoBtn('dpo') + '</h2><div style="' + grid(140, 8) + '">' + A.dpo.map(function (id) { return blk(id); }).join('') + '</div></section></div>' +
@@ -2320,7 +2514,7 @@ function tourIsCore(block) {
 var TSHORT = { s_it: 'IT platforms', s_open: 'Open-data portals', s_gis: 'Local GIS', s_iot: 'Sensors & IoT', s_maps: 'Maps', etl: 'ETL / broker', cat: 'Measures catalogue', dash: 'Dashboards', ldt: 'Local Digital Twin', kpicat: 'KPI Catalogue', epart: 'e-Participation', agent: 'AI agent', admin: 'Admin',
   dmv: 'Data models', dpf: 'Portal federator', drf: 'Repo federator', inspire: 'INSPIRE metadata', dcat: 'DCAT metadata (Idra)', sdb: 'Structured DB', obj: 'Object storage', datacat: 'Data Catalogue (Idra)', geo: 'GeoServer', pub: 'Dataset publishing (Idra)',
   c_open: 'Open-data connector (Idra)', c_iot: 'IoT connector', c_it: 'IT-platform connector', c_repo: 'Repository connector', wf: 'Workflows', mashup: 'Data mashup', kpim: 'KPI Manager', rule: 'Rule Manager', alerts: 'Real-time alerts',
-  clim_alert: 'Climate & Heat Alerts', thermal: 'Thermal comfort', hia: 'Air quality & HIA', ec_rec: 'EC recommendations', ec_dist: 'EC distribution', space_plan: 'Space use planning', space_dyn: 'Dynamic Space Mgmt', ev_plan: 'EV planning', ev_cp: 'EV CP mgmt', ccav_ch: 'CCAV charging', ccav_op: 'CCAV operations',
+  clim_alert: 'Climate & Heat Alerts', thermal: 'Thermal comfort', ec_rec: 'EC recommendations', ec_dist: 'EC distribution', space_plan: 'Space use planning', space_dyn: 'Dynamic Space Mgmt', ev_cp: 'EV CP mgmt', ccav_op: 'CCAV operations',
   dsc: 'Connector', x_conf: 'Config', x_pol: 'Policy', x_log: 'Logging', x_con: 'Contracts', x_ids: 'IDS protocol', x_auth: 'Auth', x_ex: 'Exchange', ds_mob: 'Mobility Data Space', ds_other: 'Other data spaces', users: 'Users', authn: 'Authentication', authz: 'Authorisation' };
 function tname(b) { var e = D.byId[b]; return TSHORT[b] || (e ? (e.an || e.n) : b); }
 function vTour() {
@@ -2510,7 +2704,7 @@ function vComic() {
     '</div>';
 }
 function comicArch(cur, seen) {
-  var A = D.arch, asf = [], HIDE = ['hia', 'ev_plan', 'ccav_ch', 'inspire'];
+  var A = D.arch, asf = [], HIDE = ['inspire'];
   A.asf.forEach(function (g) { asf = asf.concat(g[1]); });
   asf = asf.filter(function (b) { return HIDE.indexOf(b) < 0; });
   var dm = A.dm.concat(['etl']).filter(function (b) { return HIDE.indexOf(b) < 0; });
@@ -2590,23 +2784,24 @@ function comicSchedule() {
 
 function render() {
   if (!S.role) { app.innerHTML = vLogin(); document.title = 'Sign in · Urban-Flow Toolbox (mockup)'; return; }
-  var body = S.view === 'comic' ? vComic() : S.view === 'tour' ? vTour() : S.view === 'journey' ? vJourney() : S.view === 'story' ? vStory() : S.view === 'tool' ? vTool() : S.view === 'denied' ? vDenied() : S.view === 'arch' ? vArch() : vHome();
+  var body = S.view === 'comic' ? vComic() : S.view === 'tour' ? vTour() : S.view === 'journey' ? vJourney() : S.view === 'tools' ? vToolsDir() : S.view === 'story' ? vStory() : S.view === 'tool' ? vTool() : S.view === 'denied' ? vDenied() : S.view === 'arch' ? vArch() : vHome();
   var warn = CFG_ERR.length && (S.view === 'arch' || S.view === 'home') ? '<div role="alert" style="margin-bottom:18px;padding:14px 16px;border-radius:12px;background:#fbefd6;color:#5a3100;border:1px solid #e9c98a"><strong>Configuration issues (config/architecture-tools.js)</strong><ul style="margin:6px 0 0;padding-left:18px">' + CFG_ERR.map(function (m) { return '<li>' + esc(m) + '</li>'; }).join('') + '</ul></div>' : '';
   if (S.view === 'arch' && S.focus) {
-    app.innerHTML = '<nav class="focusbar" aria-label="Focus view controls"><button type="button" class="fbtn" data-act="focus" title="Back to the normal view (Esc)">' + SI.full + '<span>Normal view</span></button><button type="button" class="fbtn lime" data-act="nav" data-arg="home" title="Go to the Toolbox home">' + SI.home + '<span>Toolbox home</span></button></nav><main class="focusmain">' + warn + body + '</main>' + (S.sel ? vPanel() : '') + (S.layerInfo ? vLayerModal() : '') + (S.video ? vVideo() : '');
+    app.innerHTML = '<nav class="focusbar" aria-label="Focus view controls"><button type="button" class="fbtn" data-act="focus" title="Back to the normal view (Esc)">' + SI.full + '<span>Normal view</span></button><button type="button" class="fbtn lime" data-act="nav" data-arg="home" title="Go to the Toolbox home">' + SI.home + '<span>Toolbox home</span></button></nav><main class="focusmain">' + warn + body + '</main>' + (S.sel && !isMpBlock(S.sel) ? vPanel() : '') + (S.layerInfo ? vLayerModal() : '') + (S.tsel ? vToolModal() : '') + (S.video ? vVideo() : '');
     document.title = 'Architecture (focus view) · Urban-Flow Toolbox (mockup)';
     return;
   }
-  app.innerHTML = vHeader() + '<div class="shell' + (S.menu ? ' mopen' : '') + (sideMini() ? ' mini-on' : '') + '">' + vSide() + '<button type="button" class="sidescrim" data-act="menuclose" aria-label="Close the tools menu"></button><div class="content"><main' + (S.view === 'tour' || S.view === 'comic' ? ' class="tourmain"' : '') + '>' + warn + body + '</main><footer class="site">' + FOOT() + '</footer></div></div>' + ((S.view === 'arch' || S.view === 'story' || S.view === 'tour' || S.view === 'comic') && S.sel ? vPanel() : '') + (S.view === 'arch' && S.layerInfo ? vLayerModal() : '') + (S.video ? vVideo() : '');
+  app.innerHTML = vHeader() + '<div class="shell' + (S.menu ? ' mopen' : '') + (sideMini() ? ' mini-on' : '') + '">' + vSide() + '<button type="button" class="sidescrim" data-act="menuclose" aria-label="Close the tools menu"></button><div class="content"><main' + (S.view === 'tour' || S.view === 'comic' ? ' class="tourmain"' : '') + '>' + warn + body + '</main><footer class="site">' + FOOT() + '</footer></div></div>' + ((S.view === 'arch' || S.view === 'story' || S.view === 'tour' || S.view === 'comic') && S.sel && !(S.view === 'arch' && isMpBlock(S.sel)) ? vPanel() : '') + (S.view === 'arch' && S.layerInfo ? vLayerModal() : '') + (S.tsel ? vToolModal() : '') + (S.video ? vVideo() : '');
   if (S.view === 'story') ANIM_CH = S.story + Math.min(S.ch, 999);
   if (S.view === 'tour') { fitMap(app.querySelector('.tleft')); fitText(app.querySelector('.tright')); requestAnimationFrame(drawTourLinks); }
   if (S.view === 'comic') { fitMap(app.querySelector('.carch')); requestAnimationFrame(drawComicLinks); }
-  document.title = (S.view === 'comic' ? 'Valdarena – the story · ' : '') + (S.view === 'tour' ? 'Use case: Valdarena · ' : '') + (S.view === 'journey' ? 'Municipality user journey · ' : '') + (S.view === 'story' ? (S.story ? 'Use case: ' + (storyById(S.story) || {}).city + ' · ' : 'Use cases · ') : '') + (S.view === 'tool' ? D.byId[S.toolId].n + ' · ' : S.view === 'arch' ? 'Architecture · ' : '') + 'Urban-Flow Toolbox (mockup)';
+  document.title = (S.view === 'comic' ? 'Valdarena – the story · ' : '') + (S.view === 'tour' ? 'Use case: Valdarena · ' : '') + (S.view === 'journey' ? 'Municipality user journey · ' : '') + (S.view === 'tools' ? 'Tools & partners · ' : '') + (S.view === 'story' ? (S.story ? 'Use case: ' + (storyById(S.story) || {}).city + ' · ' : 'Use cases · ') : '') + (S.view === 'tool' ? D.byId[S.toolId].n + ' · ' : S.view === 'arch' ? 'Architecture · ' : '') + 'Urban-Flow Toolbox (mockup)';
 }
 
 /* ---------- events ---------- */
 var lastFocus = null;
 app.addEventListener('click', function (ev) {
+  if (S.ddopen && !ev.target.closest('.tdir-dd')) { S.ddopen = false; render(); }
   var el = ev.target.closest('[data-act]'); if (!el) return;
   var a = el.getAttribute('data-act'), arg = el.getAttribute('data-arg');
   function copy(o) { var r = {}; for (var k in o) r[k] = o[k]; return r; }
@@ -2623,6 +2818,13 @@ app.addEventListener('click', function (ev) {
     case 'video': lastFocus = el; set({ video: arg }); var vb = app.querySelector('.vidbox [data-act=videoclose]'); if (vb) vb.focus(); break;
     case 'videoclose': set({ video: null }); if (lastFocus && document.body.contains(lastFocus)) lastFocus.focus(); else { var vb2 = app.querySelector('.vidbtn'); if (vb2) vb2.focus(); } break;
     case 'focus': set({ focus: !S.focus, menu: false }); toHash(); window.scrollTo(0, 0); break;
+    case 'ddtoggle': set({ ddopen: !S.ddopen }); var ddb = document.getElementById('flt-tdom'); if (ddb) ddb.focus(); break;
+    case 'ddpick': set({ tdom: arg || null, ddopen: false }); var ddb2 = document.getElementById('flt-tdom'); if (ddb2) ddb2.focus(); break;
+    case 'treset': set({ tdom: null, tpar: null, ttool: null, tq: '', ddopen: false }); break;
+    case 'tdom': set({ tdom: arg || null }); var tb0 = app.querySelector('.tag[data-arg="' + arg + '"]'); if (tb0) tb0.focus(); break;
+    case 'tsel': lastFocus = el; set({ tsel: arg, menu: false }); var tm = app.querySelector('.modal .iconbtn'); if (tm) tm.focus(); break;
+    case 'ltool': set({ layerInfo: null, tsel: arg }); var tm2 = app.querySelector('.modal .iconbtn'); if (tm2) tm2.focus(); break;
+    case 'tclose': set({ tsel: null }); if (lastFocus && document.body.contains(lastFocus)) lastFocus.focus(); break;
     case 'nav': if (S.tplay) { S.tplay = false; tourStop(); } nav(arg); break;
     case 'tour': var tn = UJ ? (UJ.tour || UJ).steps.length : 1, ti = Math.max(0, Math.min(tn - 1, +arg)); if (S.tplay) { S.tplay = false; tourStop(); } set({ tour: ti }); toHash(); var tb2 = app.querySelector(el.classList.contains('tnav') ? '.tnav.' + (el.classList.contains('prev') ? 'prev' : 'next') : '.tdot[aria-selected="true"]'); if (tb2 && !tb2.disabled) tb2.focus(); break;
     case 'cstep': if (S.cplay) { S.cplay = false; } if (comicGo(+arg)) { render(); toHash(); } var cb = app.querySelector('[data-act="cstep"][data-arg="' + arg + '"]'); if (cb && !cb.disabled) cb.focus(); comicSchedule(); break;
@@ -2650,7 +2852,7 @@ app.addEventListener('click', function (ev) {
     case 'chap': var keepY = window.scrollY; set({ ch: +arg, sel: null }); toHash(); var tl = app.querySelector('.tl'); if (tl) { var cur = tl.querySelector('.now'); if (cur && cur.scrollIntoView) cur.scrollIntoView({ block: 'nearest', inline: 'center' }); } if (el.closest('.chapter') || el.closest('.jm')) { var top = app.querySelector('.tl'); if (top) window.scrollTo(0, top.getBoundingClientRect().top + window.scrollY - 90); } else window.scrollTo(0, keepY); break;
     case 'ssel2': lastFocus = el; set({ sel: arg }); var sp2 = app.querySelector('.panel .iconbtn'); if (sp2) sp2.focus(); break;
     case 'ssel': lastFocus = el; set({ sel: arg }); var sp = app.querySelector('.panel .iconbtn'); if (sp) sp.focus(); break;
-    case 'showarch': set({ view: 'arch', sel: arg, toolId: null, menu: false }); toHash(); window.scrollTo(0, 0); break;
+    case 'showarch': set({ view: 'arch', tsel: null, sel: arg, toolId: null, menu: false }); toHash(); window.scrollTo(0, 0); break;
     case 'sel': set({ sel: arg }); toHash(); var p = app.querySelector('.panel .iconbtn'); if (p) p.focus(); break;
     case 'selclose': if (S.view === 'story' || S.view === 'tour' || S.view === 'comic') { set({ sel: null }); break; } var was = S.sel; set({ sel: null }); toHash(); var bb = app.querySelector('[data-act="sel"][data-arg="' + was + '"]'); if (bb) bb.focus(); break;
     case 'ask': S.chat = S.chat.concat([SUG[+arg]]); render(); break;
@@ -2679,6 +2881,8 @@ document.addEventListener('keydown', function (ev) {
     return;
   }
   if (ev.key !== 'Escape') return;
+  if (S.ddopen) { set({ ddopen: false }); var ddb3 = document.getElementById('flt-tdom'); if (ddb3) ddb3.focus(); return; }
+  if (S.tsel) { set({ tsel: null }); if (lastFocus && document.body.contains(lastFocus)) lastFocus.focus(); return; }
   if (S.video) { set({ video: null }); var vb3 = app.querySelector('.vidbtn'); if (vb3) vb3.focus(); return; }
   if (S.kpiModal) { set({ kpiModal: false }); return; }
   if (S.tinfo) { set({ tinfo: false }); return; }
@@ -2692,6 +2896,23 @@ app.addEventListener('input', function (ev) {
   var inp = ev.target; if (!inp.classList || !inp.classList.contains('kpisearch')) return;
   var q = inp.value.trim().toLowerCase(), scope = inp.closest('.apad') || app;
   scope.querySelectorAll('[data-q]').forEach(function (r) { r.style.display = !q || r.getAttribute('data-q').indexOf(q) >= 0 ? '' : 'none'; });
+  if (inp.classList.contains('tdir-search')) {
+    S.tq = inp.value;
+    var vis = 0; scope.querySelectorAll('tr.dirrow').forEach(function (r) { if (r.style.display !== 'none') vis++; });
+    var nEl = scope.querySelector('.tdir-n'); if (nEl) nEl.textContent = vis;
+    var em = scope.querySelector('.tdir-empty'); if (em) em.style.display = vis ? 'none' : '';
+    var rb = scope.querySelector('.tdir-reset'); if (rb) rb.disabled = !(S.tdom || S.tpar || S.ttool || q);
+    scope.querySelectorAll('tr.dirgrp').forEach(function (h) {
+      var g = h.getAttribute('data-g'), c = 0;
+      scope.querySelectorAll('tr.dirrow[data-g="' + g + '"]').forEach(function (r) { if (r.style.display !== 'none') c++; });
+      h.style.display = c ? '' : 'none'; var gn = h.querySelector('.gn'); if (gn) gn.textContent = c;
+    });
+  }
+});
+app.addEventListener('change', function (ev) {
+  var t = ev.target, f = t && t.getAttribute && t.getAttribute('data-flt'); if (!f) return;
+  var pp = {}; pp[f] = t.value || null; set(pp);
+  var again = document.getElementById('flt-' + f); if (again) again.focus();
 });
 app.addEventListener('focusin', function (ev) {
   var m = ev.target.closest && ev.target.closest('mark.cw[data-b]'); app.querySelectorAll('.ctile.hl').forEach(function (x) { x.classList.remove('hl'); });

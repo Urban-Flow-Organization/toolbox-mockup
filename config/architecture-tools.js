@@ -24,6 +24,8 @@
  *                  { "src": "assets/videos/<file>.mp4", "title": "...", "label": "Watch video" }
  *    tools         list of tool cards:
  *        name          tool name (required)
+ *        shortName     (optional, Marketplace tools) label shown on the button in the architecture figure and in the left menu
+ *        order         (optional, Marketplace tools) position inside its domain, 1 = first
  *        partner       providing partner, e.g. "ENG", "TECNALIA" (optional)
  *        openSource    true for third-party open-source components (optional)
  *        integration   who integrates it, e.g. "ENG (T3.2 lead)" (optional)
@@ -581,18 +583,6 @@ window.UF_CONFIG = {
           "wp": "WP2",
           "tasks": "T2.3",
           "repositories": []
-        },
-        {
-          "name": "Tampere.Finland App Integration",
-          "partner": "Business Tampere",
-          "reference": "GA §3.1.4",
-          "description": "Two new mobility and energy services delivered through the Tampere.Finland app, so residents can engage with and use the smart sustainable-mobility and energy solutions.",
-          "cities": [
-            "Tampere"
-          ],
-          "wp": "WP6",
-          "tasks": "T6.9 (to confirm)",
-          "repositories": []
         }
       ],
       "video": {
@@ -610,19 +600,9 @@ window.UF_CONFIG = {
       "summary": "Monitoring of urban heat islands and thermal comfort that combines satellite imagery, IoT sensors and municipal data, with warnings when thresholds are exceeded.",
       "tools": [
         {
-          "name": "Kentyou Eye – Climate Impact Monitoring / UHI Mitigation",
-          "partner": "Kentyou",
-          "reference": "D3.1 §4.3.8.1",
-          "description": "Consolidates satellite imagery, IoT readings and municipal databases to analyse urban heat islands and simulate the effect of construction or renovation projects.",
-          "cities": [
-            "All"
-          ],
-          "wp": "WP3, WP4, WP5",
-          "tasks": "T4.1",
-          "repositories": []
-        },
-        {
           "name": "UrbanHeatAtlas",
+          "shortName": "Urban Heat Atlas",
+          "order": 1,
           "partner": "TECNALIA",
           "reference": "D3.1 §4.3.8.2",
           "description": "Deep-learning model trained on microscale simulations that produces UTCI heat-stress maps at neighbourhood scale, exposed through a REST API.",
@@ -635,6 +615,8 @@ window.UF_CONFIG = {
         },
         {
           "name": "EarthDataInsights (EDI)",
+          "shortName": "EarthDataInsights (EDI)",
+          "order": 3,
           "partner": "Latitudo 40",
           "reference": "D3.1 §4.3.8.3",
           "description": "Earth-observation indicators (LST, SUHI, vegetation, flood exposure, land use) with historical series, Stories, ESG reporting and the Ask EDI assistant.",
@@ -656,6 +638,8 @@ window.UF_CONFIG = {
       "tools": [
         {
           "name": "Climate Shelter Router (THERMAL COMFORT)",
+          "shortName": "Climate Shelter Router",
+          "order": 2,
           "partner": "TECNALIA",
           "reference": "GA T5.4",
           "description": "Optimal location of climate refuges and comfortable itineraries based on thermal-comfort criteria and accessibility needs (cycling, walking, PT stops, schools).",
@@ -682,24 +666,9 @@ window.UF_CONFIG = {
       "summary": "Analyses energy-community simulation outputs and participant profiles to suggest actions. The first capability recommends EV charging locations and time windows from surplus PV energy.",
       "tools": [
         {
-          "name": "Collective DER optimizing tool – EC Customer Recommendations",
-          "partner": "TECNALIA",
-          "reference": "D3.1 §4.3.9.1",
-          "description": "Recommends EV charging locations and time windows from REC simulation outputs, with vulnerability-aware weighting of participants.",
-          "cities": [
-            "All"
-          ],
-          "wp": "WP5",
-          "tasks": "T5.2",
-          "repositories": [
-            {
-              "label": "LDT-Energy-Communities (listed in D3.1)",
-              "url": "https://github.com/Urban-Flow-Organization/LDT-Energy-Communities"
-            }
-          ]
-        },
-        {
           "name": "EBENTO – Energy One-Stop Shop",
+          "shortName": "EBENTO",
+          "order": 3,
           "partner": "ETRA",
           "reference": "GA §1.1.4 · T5.2",
           "description": "One-stop shop for energy efficiency: information and services for homeowners and local entities on energy habits, bills, renovation and solar self-consumption.",
@@ -717,6 +686,8 @@ window.UF_CONFIG = {
         },
         {
           "name": "Energy Advising RAG",
+          "shortName": "Energy Advising RAG",
+          "order": 2,
           "partner": "TECNALIA",
           "reference": "D3.1 §4.3.2 · GA T5.2",
           "description": "AI assistant (RAG over energy documentation) that guides citizens and entities in the one-stop shop and launches energy-community simulations.",
@@ -743,6 +714,8 @@ window.UF_CONFIG = {
       "tools": [
         {
           "name": "Collective DER optimizing tool",
+          "shortName": "Collective DER optimisation tool",
+          "order": 1,
           "partner": "TECNALIA",
           "reference": "D3.1 §4.3.9.1",
           "description": "LSTM forecasting, community battery control, MILP beta-coefficient allocation and social-fairness adjustment; annual multi-strategy planning.",
@@ -757,18 +730,6 @@ window.UF_CONFIG = {
               "url": "https://github.com/Urban-Flow-Organization/LDT-Energy-Communities"
             }
           ]
-        },
-        {
-          "name": "Kentyou Eye – City Energy Management",
-          "partner": "Kentyou",
-          "reference": "D3.1 §4.3.9.2",
-          "description": "Electricity, gas and water consumption of municipal buildings with map view, trend analysis, consumption alerts and reporting.",
-          "cities": [
-            "All"
-          ],
-          "wp": "WP3, WP4, WP5",
-          "tasks": "T5.2",
-          "repositories": []
         }
       ]
     },
@@ -781,6 +742,8 @@ window.UF_CONFIG = {
       "tools": [
         {
           "name": "U-NEED – Mobility Accessibility & Multimodal Planning Analytics",
+          "shortName": "U-NEED",
+          "order": 1,
           "partner": "ETRA",
           "reference": "D3.1 §4.3.10.2",
           "description": "Big-data analytics for public transport: accessibility index, isochrones, 15-minute city and multimodal analysis under climate disruptions.",
@@ -798,6 +761,8 @@ window.UF_CONFIG = {
         },
         {
           "name": "Urban Simulator",
+          "shortName": "Urban Simulator",
+          "order": 6,
           "partner": "Latitudo 40",
           "reference": "D3.1 §4.3.10.5",
           "description": "Evaluates design scenarios through GAN-generated synthetic satellite imagery, scored with the Microclimatic Performance Index against the observed baseline.",
@@ -809,16 +774,23 @@ window.UF_CONFIG = {
           "repositories": []
         },
         {
-          "name": "EarthDataInsights (observed baseline)",
-          "partner": "Latitudo 40",
-          "reference": "D3.1 §4.3.8.3",
-          "description": "Supplies the observed environmental state used to compare planning scenarios.",
+          "name": "EPISODE-CityChem & BenMAP-CE (air quality / HIA)",
+          "shortName": "EPISODE",
+          "order": 4,
+          "partner": "PV",
+          "reference": "GA T3.6 · §1.2.1.3",
+          "description": "Open-source urban air-quality model for high-resolution pollutant exposure (EPISODE-CityChem) combined with health-impact quantification through exposure-response functions (BenMAP-CE).",
           "cities": [
             "All"
           ],
-          "wp": "WP3, WP4",
-          "tasks": "T3.5, T4.1",
-          "repositories": []
+          "wp": "WP3",
+          "tasks": "T3.6",
+          "repositories": [
+            {
+              "label": "Urban-Flow tool catalogue",
+              "url": "https://github.com/Urban-Flow-Organization/Catalogue"
+            }
+          ]
         }
       ]
     },
@@ -831,6 +803,8 @@ window.UF_CONFIG = {
       "tools": [
         {
           "name": "PARCAR – Adaptive Public Space Management",
+          "shortName": "PARCAR",
+          "order": 5,
           "partner": "ETRA",
           "reference": "D3.1 §4.3.10.1",
           "description": "Dynamic curb-side allocation for logistics, residents and general use, with daily time slots and temporary overrides for events.",
@@ -849,6 +823,8 @@ window.UF_CONFIG = {
         },
         {
           "name": "INES Cloud – Digital urban mobility & parking",
+          "shortName": "INES CLOUD",
+          "order": 2,
           "partner": "Municipia",
           "reference": "D3.1 §4.3.10.4",
           "description": "Parking supervision extended with performance-based dynamic pricing, scenario analysis, configurable alerts and access regulation (UVAR, permits).",
@@ -867,6 +843,8 @@ window.UF_CONFIG = {
         },
         {
           "name": "MUV Cloud / MUV App – Multimodal mobility & LEZ tracking",
+          "shortName": "MUV CLOUD",
+          "order": 3,
           "partner": "Municipia",
           "reference": "D3.1 §4.3.10.4",
           "description": "MaaS app and operator platform: trip planning, ticketing and parking payments, dynamic prices communicated to citizens, vehicle tracking in the LEZ.",
@@ -884,6 +862,8 @@ window.UF_CONFIG = {
         },
         {
           "name": "Kentyou Eye – Mobility Hypervisor (traffic management)",
+          "shortName": "Kentyou Eye",
+          "order": 7,
           "partner": "Kentyou",
           "reference": "D3.1 §4.3.10.3",
           "description": "City-scale traffic monitoring, anomaly detection, origin-destination analytics and decision support.",
@@ -898,34 +878,6 @@ window.UF_CONFIG = {
               "url": "https://github.com/Urban-Flow-Organization/kentyou-eye"
             }
           ]
-        },
-        {
-          "name": "CITY-LOG",
-          "partner": "ETRA",
-          "reference": "GA §1.2.1.3",
-          "description": "Location of loading/unloading spaces and dynamic use of public space in response to disruptive climate events.",
-          "wp": "WP4",
-          "tasks": "T4.3",
-          "repositories": []
-        }
-      ]
-    },
-    "ev_plan": {
-      "title": "Planning",
-      "moduleName": "EV Charging Planning",
-      "layer": "Analyse · Simulate · Forecast (Marketplace)",
-      "domain": "EV Charging Infrastructure",
-      "reference": "D3.1 §4.3.11.2",
-      "summary": "AI for Soft Mobility Placement: machine learning, geospatial analysis and multi-criteria optimisation to place EV charging stations, cargo-bike hubs and shared-mobility services. Already validated in Barcelona and Paris-Saclay.",
-      "tools": [
-        {
-          "name": "AI for Soft Mobility Placement",
-          "partner": "Partner to be confirmed",
-          "reference": "D3.1 §4.3.11.2",
-          "description": "Machine learning and multi-criteria optimisation to place EV chargers, cargo-bike hubs and shared mobility; validated in Barcelona and Paris-Saclay.",
-          "wp": "WP4",
-          "tasks": "T4.2",
-          "repositories": []
         }
       ]
     },
@@ -939,6 +891,8 @@ window.UF_CONFIG = {
       "tools": [
         {
           "name": "Electra – Smart EV Fleet Charging Optimisation",
+          "shortName": "ELECTRA",
+          "order": 1,
           "partner": "ETRA",
           "reference": "D3.1 §4.3.11.1",
           "description": "Linear optimisation of e-bus depot charging against energy cost, chargers and schedules, with real-time battery state and forecasts.",
@@ -953,19 +907,11 @@ window.UF_CONFIG = {
               "url": "https://github.com/Urban-Flow-Organization/Electra"
             }
           ]
-        }
-      ]
-    },
-    "ccav_ch": {
-      "title": "Charging",
-      "moduleName": "CCAV Charging",
-      "layer": "Analyse · Simulate · Forecast (Marketplace)",
-      "domain": "CCAV Fleet",
-      "reference": "GA T5.3",
-      "summary": "Models the energy needs of electric automated vehicles over a service day to plan optimal charging cycles, including V2G and depot or on-route charging. Experiments run on the TATEBE testbed in Tampere.",
-      "tools": [
+        },
         {
           "name": "TATEBE EV charging testbed",
+          "shortName": "TATEBE",
+          "order": 2,
           "partner": "VTT",
           "reference": "GA T5.3",
           "description": "Tampere testbed for innovative charging technologies, V2X interoperability and user-experience evaluation of automated-vehicle charging.",
@@ -988,6 +934,8 @@ window.UF_CONFIG = {
       "tools": [
         {
           "name": "Remote Control Center (RCC)",
+          "shortName": "Remote Control Center (AV)",
+          "order": 1,
           "partner": "Remoted",
           "reference": "D3.1 §4.3.12",
           "description": "Supervision and remote assistance of Level-4 automated shuttles; use case between Hervantajärvi and Lintuhytti in Tampere.",
@@ -996,6 +944,20 @@ window.UF_CONFIG = {
           ],
           "wp": "WP6",
           "tasks": "T5.1, T6.9",
+          "repositories": []
+        },
+        {
+          "name": "Tampere.Finland App Integration",
+          "shortName": "Tampere.Finland App Integration",
+          "order": 2,
+          "partner": "Business Tampere",
+          "reference": "GA §3.1.4",
+          "description": "Two new mobility and energy services delivered through the Tampere.Finland app, so residents can engage with and use the smart sustainable-mobility and energy solutions.",
+          "cities": [
+            "Tampere"
+          ],
+          "wp": "WP6",
+          "tasks": "T6.9 (to confirm)",
           "repositories": []
         }
       ]
@@ -1765,43 +1727,7 @@ window.UF_CONFIG = {
       ]
     }
   },
-  "newMarketplaceBlocks": [
-    {
-      "id": "hia",
-      "domain": "Climate Resilience / Adaptation",
-      "title": "Air Quality & Health Impact",
-      "moduleName": "Air Quality & Health Impact Assessment",
-      "reference": "GA T3.6",
-      "partnerShort": "PV",
-      "summary": "Predictive air-quality simulations and Health Impact Assessment of climate-neutrality measures: pollutant exposure at high spatial and temporal resolution, health outcomes (YLL, DALY) and their economic value, feeding the Impact Assessment Framework and the CN Composite Index.",
-      "features": [
-        "City-scale pollutant dispersion (NO₂, O₃, PM₂.₅)",
-        "Exposure-response functions for mortality and respiratory diseases",
-        "Monte Carlo uncertainty analysis",
-        "Inputs to the IAF and the CN Composite Index"
-      ],
-      "technology": "EPISODE-CityChem, BenMAP-CE",
-      "tools": [
-        {
-          "name": "EPISODE-CityChem & BenMAP-CE (air quality / HIA)",
-          "partner": "PV",
-          "reference": "GA T3.6 · §1.2.1.3",
-          "description": "Open-source urban air-quality model for high-resolution pollutant exposure (EPISODE-CityChem) combined with health-impact quantification through exposure-response functions (BenMAP-CE).",
-          "cities": [
-            "All"
-          ],
-          "wp": "WP3",
-          "tasks": "T3.6",
-          "repositories": [
-            {
-              "label": "Urban-Flow tool catalogue",
-              "url": "https://github.com/Urban-Flow-Organization/Catalogue"
-            }
-          ]
-        }
-      ]
-    }
-  ],
+  "newMarketplaceBlocks": [],
   "cityMatrix": [
     {
       "tool": "ELECTRA (EV bus fleet management)",
