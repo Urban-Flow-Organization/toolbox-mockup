@@ -438,7 +438,6 @@ window.UF_CONFIG = {
         {
           "name": "GeoCacher",
           "partner": "ENG",
-          "reference": "Urban-Flow catalogue · not in DoA (optional)",
           "description": "Backend and frontend for a geospatial dashboard: extracts and caches data from the Orion Context Broker, saves searches and uploads GeoJSON.",
           "wp": "WP3",
           "tasks": "T3.5",
@@ -580,7 +579,12 @@ window.UF_CONFIG = {
               "label": "decidim-module-whiteboard",
               "url": "https://github.com/Urban-Flow-Organization/decidim-module-whiteboard"
             }
-          ]
+          ],
+          "video": {
+            "src": "assets/videos/e-Participation_Decidim_Urban-Flow.mp4",
+            "title": "e-Participation (Decidim) – demo video",
+            "label": "Watch video"
+          }
         },
         {
           "name": "Coney Toolkit",
@@ -591,12 +595,7 @@ window.UF_CONFIG = {
           "tasks": "T2.3",
           "repositories": []
         }
-      ],
-      "video": {
-        "src": "assets/videos/e-Participation_Decidim_Urban-Flow.mp4",
-        "title": "e-Participation (Decidim) – demo video",
-        "label": "Watch video"
-      }
+      ]
     },
     "clim_alert": {
       "title": "Real-time Alerts",
@@ -990,14 +989,14 @@ window.UF_CONFIG = {
               "label": "KPI-Manager",
               "url": "https://github.com/Urban-Flow-Organization/KPI-Manager"
             }
-          ]
+          ],
+          "video": {
+            "src": "assets/videos/KPI_Manager_Urban-Flow.mp4",
+            "title": "KPI Manager – demo video",
+            "label": "Watch video"
+          }
         }
-      ],
-      "video": {
-        "src": "assets/videos/KPI_Manager_Urban-Flow.mp4",
-        "title": "KPI Manager – demo video",
-        "label": "Watch video"
-      }
+      ]
     },
     "rule": {
       "title": "Rule Manager",

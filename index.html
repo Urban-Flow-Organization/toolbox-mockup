@@ -1357,7 +1357,7 @@ function metaRow(x) {
 }
 function partnersOf(id) { var seen = {}; return (DT[id] || []).map(function (x) { return x.p || 'external'; }).filter(function (p) { if (seen[p]) return false; seen[p] = 1; return true; }); }
 function cardHTML(x) {
-  return '<article class="toolcard"><div class="who">' + (x.p ? '<span class="partner">' + esc(x.p) + '</span>' : '') + (x.os ? '<span class="partner os" title="Third-party tool, not developed by a project partner">External tool</span>' : '') + (x.i ? '<span class="partner int">Integration: ' + esc(x.i) + '</span>' : '') + '<span class="refc">' + esc(x.ref) + '</span></div>' + metaRow(x) +
+  return '<article class="toolcard"><div class="who">' + (x.p ? '<span class="partner">' + esc(x.p) + '</span>' : '') + (x.os ? '<span class="partner os" title="Third-party tool, not developed by a project partner">External tool</span>' : '') + (x.i ? '<span class="partner int">Integration: ' + esc(x.i) + '</span>' : '') + (x.ref ? '<span class="refc">' + esc(x.ref) + '</span>' : '') + '</div>' + metaRow(x) +
     '<h3>' + esc(x.n) + '</h3><p class="small" style="margin:0;color:var(--ink2)">' + esc(x.d) + '</p><div class="stack" style="gap:2px">' + repoLinks(x.r, 'GitHub repository not public yet') + '</div>' + toolVideoBtn(x) + '</article>';
 }
 
