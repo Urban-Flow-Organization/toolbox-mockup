@@ -27,6 +27,7 @@
  *        shortName     (optional, Marketplace tools) label shown on the button in the architecture figure and in the left menu
  *        order         (optional, Marketplace tools) position inside its domain, 1 = first
  *        partner       providing partner, e.g. "ENG", "TECNALIA" (optional)
+ *        video         { "src", "title", "label" } demo video, shown as a "Watch video" button on the tool (optional)
  *        openSource    true for external tools, i.e. third-party tools not developed by a project partner;
  *                      shown as the "External tool" label (optional)
  *        integration   who integrates it, e.g. "ENG (T3.2 lead)" (optional)
@@ -453,7 +454,12 @@ window.UF_CONFIG = {
           ],
           "cities": [
             "All"
-          ]
+          ],
+          "video": {
+            "src": "assets/videos/GeoCacher_Urban-Flow.mp4",
+            "title": "GeoCacher – demo video",
+            "label": "Watch video"
+          }
         },
         {
           "name": "Kentyou Eye – Urban hypervisor visualisation",
@@ -1118,7 +1124,12 @@ window.UF_CONFIG = {
               "label": "Idra (Urban-Flow)",
               "url": "https://github.com/Urban-Flow-Organization/Idra"
             }
-          ]
+          ],
+          "video": {
+            "src": "assets/videos/Idra_Urban-Flow.mp4",
+            "title": "Idra – demo video",
+            "label": "Watch video"
+          }
         }
       ]
     },
@@ -1193,7 +1204,12 @@ window.UF_CONFIG = {
               "label": "Idra (Urban-Flow)",
               "url": "https://github.com/Urban-Flow-Organization/Idra"
             }
-          ]
+          ],
+          "video": {
+            "src": "assets/videos/Idra_Urban-Flow.mp4",
+            "title": "Idra – demo video",
+            "label": "Watch video"
+          }
         }
       ]
     },
@@ -1218,7 +1234,12 @@ window.UF_CONFIG = {
               "label": "Idra (Urban-Flow)",
               "url": "https://github.com/Urban-Flow-Organization/Idra"
             }
-          ]
+          ],
+          "video": {
+            "src": "assets/videos/Idra_Urban-Flow.mp4",
+            "title": "Idra – demo video",
+            "label": "Watch video"
+          }
         }
       ]
     },
@@ -1289,7 +1310,12 @@ window.UF_CONFIG = {
               "label": "Idra (Urban-Flow)",
               "url": "https://github.com/Urban-Flow-Organization/Idra"
             }
-          ]
+          ],
+          "video": {
+            "src": "assets/videos/Idra_Urban-Flow.mp4",
+            "title": "Idra – demo video",
+            "label": "Watch video"
+          }
         }
       ]
     },
@@ -1354,7 +1380,12 @@ window.UF_CONFIG = {
               "label": "Idra (Urban-Flow)",
               "url": "https://github.com/Urban-Flow-Organization/Idra"
             }
-          ]
+          ],
+          "video": {
+            "src": "assets/videos/Idra_Urban-Flow.mp4",
+            "title": "Idra – demo video",
+            "label": "Watch video"
+          }
         }
       ]
     },
@@ -1420,7 +1451,12 @@ window.UF_CONFIG = {
               "label": "Idra (Urban-Flow)",
               "url": "https://github.com/Urban-Flow-Organization/Idra"
             }
-          ]
+          ],
+          "video": {
+            "src": "assets/videos/Idra_Urban-Flow.mp4",
+            "title": "Idra – demo video",
+            "label": "Watch video"
+          }
         }
       ]
     },

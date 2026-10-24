@@ -1312,7 +1312,7 @@ if (!CFG || typeof CFG !== 'object') {
 }
 function fromCfg(t, where) {
   if (!t || !t.name) { CFG_ERR.push('A tool in "' + where + '" has no "name".'); return null; }
-  return { n: t.name, p: t.partner || '', os: !!t.openSource, i: t.integration || '', ref: t.reference || '', d: t.description || '', r: (t.repositories || []).filter(function (r) { return r && r.url; }).map(function (r) { return { label: r.label || r.url, url: r.url }; }), cities: t.cities || [], wp: t.wp || '', tasks: t.tasks || '', sn: t.shortName || '', ord: t.order || 99 };
+  return { n: t.name, p: t.partner || '', os: !!t.openSource, i: t.integration || '', ref: t.reference || '', d: t.description || '', r: (t.repositories || []).filter(function (r) { return r && r.url; }).map(function (r) { return { label: r.label || r.url, url: r.url }; }), cities: t.cities || [], wp: t.wp || '', tasks: t.tasks || '', sn: t.shortName || '', ord: t.order || 99, v: t.video && t.video.src ? t.video : null };
 }
 function toolsFrom(list, where) { return (list || []).map(function (t) { return fromCfg(t, where); }).filter(Boolean); }
 (CFG.newMarketplaceBlocks || []).forEach(function (nb) {
@@ -1358,7 +1358,7 @@ function metaRow(x) {
 function partnersOf(id) { var seen = {}; return (DT[id] || []).map(function (x) { return x.p || 'external'; }).filter(function (p) { if (seen[p]) return false; seen[p] = 1; return true; }); }
 function cardHTML(x) {
   return '<article class="toolcard"><div class="who">' + (x.p ? '<span class="partner">' + esc(x.p) + '</span>' : '') + (x.os ? '<span class="partner os" title="Third-party tool, not developed by a project partner">External tool</span>' : '') + (x.i ? '<span class="partner int">Integration: ' + esc(x.i) + '</span>' : '') + '<span class="refc">' + esc(x.ref) + '</span></div>' + metaRow(x) +
-    '<h3>' + esc(x.n) + '</h3><p class="small" style="margin:0;color:var(--ink2)">' + esc(x.d) + '</p><div class="stack" style="gap:2px">' + repoLinks(x.r, 'GitHub repository not public yet') + '</div></article>';
+    '<h3>' + esc(x.n) + '</h3><p class="small" style="margin:0;color:var(--ink2)">' + esc(x.d) + '</p><div class="stack" style="gap:2px">' + repoLinks(x.r, 'GitHub repository not public yet') + '</div>' + toolVideoBtn(x) + '</article>';
 }
 
 var S = { cch: 0, cpn: 0, cplay: false, tinfo: false, tour: 0, tplay: false, jstep: null, tabs: {}, dsub: null, modDone: false, kpis: [], kpiModal: false, catOn: {}, draw: {}, lay: {}, tw3d: true, gsub: null, sideMini: null, lang: 'EN', story: null, ch: 0, layerInfo: null, archCity: '', archOnly: false, role: null, menu: false, view: 'home', toolId: null, sel: null, city: 'Valencia', open: { ui: true, asf: true }, chat: [], chatMode: 'RAG', votes: {}, offers: {}, ran: {} };
@@ -2032,7 +2032,7 @@ function vToolModal() {
     '<dl>' + row('Partner', x.p ? esc(x.p) : '') + row('Integration', x.i ? esc(x.i) : '') + row('Reference', x.ref ? '<span class="mono">' + esc(x.ref) + '</span>' : '') +
       row('Module', esc(it.mp ? b.n : (b.an || b.n)) + (hasMod ? ' ' + lockIf(b.id) : '')) + row('Layer', layerBadge(b.L)) +
       row('Repositories', '<div class="stack" style="gap:2px">' + repoLinks(x.r, 'GitHub repository not public yet') + '</div>') + '</dl>' +
-    '<div class="wrap" style="gap:10px">' + (hasMod ? '<button type="button" class="btn primary" data-act="nav" data-arg="' + esc(b.id) + '">Open module</button>' : '') +
+    '<div class="wrap" style="gap:10px">' + (hasMod ? '<button type="button" class="btn primary" data-act="nav" data-arg="' + esc(b.id) + '">Open module</button>' : '') + toolVideoBtn(x) +
     (S.view === 'arch' ? '' : '<button type="button" class="btn" data-act="showarch" data-arg="' + esc(b.id) + '">' + ICON.arch + 'Show in architecture</button>') + '</div>' +
     '</div></div></div>';
 }
@@ -2217,7 +2217,14 @@ function vDrawer() {
 }
 
 var PLAY_ICON = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="3"/><path d="M10 9.2v5.6l4.8-2.8z" fill="currentColor"/></svg>';
-function blockVideo(id) { var b = (CFG.blocks || {})[id]; return b && b.video && b.video.src ? b.video : null; }
+function blockVideo(id) {
+  if (typeof id === 'string' && id.indexOf('t:') === 0) { var nm = id.slice(2), f = null; Object.keys(DT).forEach(function (k) { (DT[k] || []).forEach(function (x) { if (!f && x.n === nm && x.v) f = x.v; }); }); return f; }
+  var b = (CFG.blocks || {})[id]; return b && b.video && b.video.src ? b.video : null;
+}
+function toolVideoBtn(x) {
+  if (!x || !x.v) return '';
+  return '<button type="button" class="btn outline vidbtn" data-act="video" data-arg="t:' + esc(x.n) + '" title="' + esc(x.v.title || 'Watch the demo video') + '">' + PLAY_ICON + esc(x.v.label || 'Watch video') + '</button>';
+}
 function blockVideoBtn(id) {
   var v = blockVideo(id); if (!v) return '';
   return '<button type="button" class="btn outline vidbtn" data-act="video" data-arg="' + id + '" title="' + esc(v.title || 'Watch the demo video') + '">' + PLAY_ICON + esc(v.label || 'Watch video') + '</button>';
