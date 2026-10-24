@@ -554,7 +554,6 @@ window.UF_CONFIG = {
         {
           "name": "Decidim (Urban-Flow fork) and modules",
           "partner": "ENG",
-          "openSource": true,
           "reference": "GA §1.2.1.3 · T3.4",
           "description": "Participatory-democracy framework integrated with the Digital Enabler; Urban-Flow modules for Keycloak SSO, Idra datasets, iframes, NBS stories and whiteboards.",
           "cities": [
