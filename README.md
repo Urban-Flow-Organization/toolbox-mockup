@@ -13,3 +13,61 @@ A clickable mockup of the future Urban-Flow Local Digital Twin Toolbox portal.
 - **Architecture:** the Urban-Flow reference architecture with every block clickable (summary, D3.1 reference, partner, GitHub links, "open module"). Tool cards show a "Watch video" button for the tools with a demo (Decidim, KPI Manager, Idra, GeoCacher).
 
 All figures, maps and tables are sample data for illustration.
+
+## Editing the tools and the architecture cards (no coding needed)
+
+Almost everything you see in the mockup about tools lives in one file: **`config/architecture-tools.js`**.
+It feeds the architecture cards (click a block), the Marketplace layer, the **Tools & partners** list and the tool detail windows:
+block titles, summaries, tools, partners, cities (flags), work packages, GitHub links and demo videos.
+
+**How to change it**
+
+1. Open `config/architecture-tools.js` with any text editor (VS Code, or TextEdit in plain-text mode).
+2. Change or add entries. The part after `window.UF_CONFIG =` is plain JSON: use double quotes `"`, and no comma after the last item of a list. The comment at the top of the file explains every field.
+3. Save and reload `index.html` in the browser (Cmd+Shift+R in Chrome, Cmd+Option+R in Safari).
+
+The **"i" button** next to each layer title opens an explanation of the layer. Its text is in the `"layers"` section of the same file.
+
+**Common changes**
+
+| I want to… | What to do |
+| --- | --- |
+| Add a tool to a block | In `"blocks"`, find the block and add an object to its `"tools"` list (example below). The tool also appears in **Tools & partners**. |
+| Show the three city flags | `"cities": ["All"]` (or a list such as `["Valencia", "Florence"]`). |
+| Add a demo video to a tool | Put the file in `assets/videos/`, then add `"video": { "src": "assets/videos/MyTool.mp4", "title": "My tool – demo video", "label": "Watch video" }` to the tool. A "Watch video" button appears on its card and in its detail window. |
+| Mark a tool as external (not developed by a project partner) | Add `"openSource": true` to the tool. It gets the "External tool" label. |
+| Change the name shown on a Marketplace button | Set `"shortName"` on the tool. Use `"order"` (1, 2, 3…) to decide its position inside its domain. |
+| Add a new Marketplace block | Add an entry to `"newMarketplaceBlocks"` with a new `"id"` and one of the existing domains (example below). Its tools appear under that domain. |
+
+**Example – a new tool**
+
+```json
+{
+  "name": "New tool",
+  "partner": "ETRA",
+  "reference": "D3.1 §4.3.10",
+  "description": "One or two sentences about the tool.",
+  "cities": ["Valencia"],
+  "wp": "WP4",
+  "tasks": "T4.3",
+  "repositories": [{ "label": "GitHub", "url": "https://github.com/…" }]
+}
+```
+
+Only `"name"` is required; leave out the fields you do not need.
+
+**Example – a new Marketplace block**
+
+```json
+{
+  "id": "my_block",
+  "domain": "Energy Communities",
+  "title": "My new block",
+  "summary": "What this block does.",
+  "tools": [ { "name": "My new tool", "shortName": "NEW TOOL", "partner": "ETRA" } ]
+}
+```
+
+The `"id"` must be new (lowercase, no spaces). The `"domain"` must be one of: Climate Resilience / Adaptation, Energy Communities, Space & Infrastructures, EV Charging Infrastructure, CCAV Fleet.
+
+**If something is wrong** (unknown block id, JSON error, missing file), the Home and Architecture pages show a yellow **Configuration issues** box that says what to fix.
