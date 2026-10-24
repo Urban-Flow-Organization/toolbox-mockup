@@ -1740,7 +1740,7 @@ function appDecidim() {
       sub === 'news' ? [['Results of the San Frediano vote', 'Sent', '1,284 recipients'], ['Join the climate shelters debate', 'Draft', '—']] :
       sub === 'asm' ? [['Florence citizens’ assembly', 'Published', '24 members'], ['Valencia citizens’ assembly', 'Published', '31 members'], ['Tampere citizens’ assembly', 'Published', '18 members'], ['Youth climate council', 'Published', '15 members']] :
       [['Terms of service', 'Published', 'Updated 2026-09'], ['FAQ – how to vote', 'Published', 'Updated 2026-10']];
-    body = '<h2 class="ah">' + esc(lbl) + '</h2><div class="tbl2"><table><tbody>' + rows.map(function (r) { return '<tr><td>' + esc(r[0]) + '</td><td>' + esc(r[1]) + '</td><td>' + esc(r[2]) + '</td></tr>'; }).join('') + '</tbody></table></div>';
+    body = (sub === 'asm' ? '<div class="wrap" style="justify-content:space-between;align-items:center;gap:10px"><h2 class="ah" style="margin:0">' + esc(lbl) + '</h2><button type="button" class="abtn">+ New assembly</button></div>' : '<h2 class="ah">' + esc(lbl) + '</h2>') + '<div class="tbl2"><table><tbody>' + rows.map(function (r) { return '<tr><td>' + esc(r[0]) + '</td><td>' + esc(r[1]) + '</td><td>' + esc(r[2]) + '</td></tr>'; }).join('') + '</tbody></table></div>';
   }
   return '<div class="decidim"><nav class="dsub" aria-label="Decidim administration">' + DSUB.map(function (x, i) {
       return (i === 3 ? '<hr>' : '') + '<button type="button" data-act="dsub" data-arg="' + x[0] + '" aria-current="' + (sub === x[0] ? 'page' : 'false') + '">' + AI[x[2]] + '<span>' + esc(x[1]) + (x[0] === 'mod' && pending ? ' <b class="dot">1</b>' : '') + '</span></button>';
