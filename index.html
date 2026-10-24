@@ -1462,6 +1462,7 @@ var SI = (function () {
     gear: s('<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1L7 17M17 7l2.1-2.1"/>'),
     book: s('<path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 21V5M8 7h7M8 11h5"/>'),
     arch: s('<rect x="3" y="3" width="18" height="5" rx="1"/><rect x="3" y="10" width="8" height="11" rx="1"/><rect x="13" y="10" width="8" height="11" rx="1"/>'),
+    plug: s('<path d="M9 3v5M15 3v5"/><path d="M7 8h10v3a5 5 0 0 1-10 0z"/><path d="M12 16v5"/>'),
     list: s('<path d="M9 6h12M9 12h12M9 18h12"/><circle cx="4.5" cy="6" r="1.2"/><circle cx="4.5" cy="12" r="1.2"/><circle cx="4.5" cy="18" r="1.2"/>'),
     shield: s('<path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/>'),
     chev: '<svg class="schev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>',
@@ -1483,7 +1484,8 @@ function sideNav() {
     { id: 'admin', icon: 'gear', label: 'Administration' },
     { grp: 'mp', icon: 'store', label: 'Marketplace', mp: true, domains: D.arch.asf },
     { grp: 'kpi', icon: 'gauge', label: 'KPI & Analytics', items: mods(['kpim', 'rule', 'alerts']) },
-    { grp: 'data', icon: 'db', label: 'Data Platform', items: mods(D.arch.dpo.concat(D.arch.dm, ['etl'], D.arch.dc)) },
+    { grp: 'data', icon: 'db', label: 'Data Platform', items: mods(D.arch.dpo.concat(D.arch.dm, ['etl'])) },
+    { grp: 'dcon', icon: 'plug', label: 'Data Connectors', domains: D.arch.dc.map(function (id) { return [D.byId[id].n, [id]]; }) },
     { id: 'dsc', icon: 'share', label: 'Data Spaces Connector' },
     { sec: 'Urban-Flow Use Case' },
     { view: 'comic', icon: 'people', label: 'Valdarena' },
@@ -2021,7 +2023,7 @@ function vToolsDir() {
 }
 function vToolModal() {
   var it = toolList().filter(function (z) { return z.key === S.tsel; })[0]; if (!it) return '';
-  var x = it.x, b = it.b, hasMod = D.mods.indexOf(b.id) >= 0;
+  var x = it.x, b = it.b, hasMod = D.mods.indexOf(b.id) >= 0 && D.arch.dc.indexOf(b.id) < 0;
   var row = function (k, v) { return v ? '<dt>' + k + '</dt><dd>' + v + '</dd>' : ''; };
   return '<div class="overlay modalwrap" style="z-index:60"><button type="button" class="scrim" data-act="tclose" aria-label="Close"></button>' +
     '<div class="modal tdet" role="dialog" aria-modal="true" aria-labelledby="td-h">' +
